@@ -1,0 +1,33 @@
+#!/usr/bin/env python2.7
+
+import os, subprocess
+import re
+import csv
+
+GIT_PATH = '/usr/local/bin/git'
+COMMIT_FILE = '%s/commits.csv' % os.getenv('HOME')
+
+commit_str = subprocess.check_output([GIT_PATH, 'log', '-1',
+             '--shortstat', '--pretty=format:%ai%n%h%n%s'])
+
+# commit lines are:
+# 0 time in yyyy-mm-dd hh:mm:ss -tzone
+# 1 sha1 hash, abbreviated
+# 2 subject line of commit
+# 3 # files changed, # insertions, # deletions
+raw_commit_lines = commit_str.split('\n')[:-1]
+commit_data = raw_commit_lines[:-1]
+
+#(no tzone for format compatibility)
+commit_data[0] = commit_data[0][:-6]
+
+# split up modification quantities (files, insertions, deletions)
+commit_data.extend(re.findall(r'\d+', raw_commit_lines[-1]))
+
+# include repo (project dir)
+commit_data.insert(1, os.path.basename(os.getcwd()))
+
+# write commit data to commit file as CSV
+with open(COMMIT_FILE, 'a') as f:
+  writer = csv.writer(f)
+  writer.writerow(commit_data)
