@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# convert dos (CRLF) line endings to unix (LF)
+# by stripping the carriage returns (\r) w/ tr
+
+for x
+do
+    echo "Converting $x"
+    tr -d '\r' < "$x" > "/tmp/tmp.crlf"
+    mv "/tmp/tmp.crlf" "$x"
+done
