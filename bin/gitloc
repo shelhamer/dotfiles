@@ -30,7 +30,9 @@ commit_data[0] = commit_data[0][:-6]
 commit_data.extend(re.findall(r'\d+', raw_commit_lines[-1]))
 
 # include repo (project dir)
-commit_data.insert(1, os.path.basename(os.getcwd()))
+repo = subprocess.check_output([GIT_PATH, 'rev-parse', '--show-toplevel'])
+repo = os.path.basename(repo).strip()
+commit_data.insert(1, repo)
 
 # write commit data to commit file as CSV
 with open(COMMIT_FILE, 'a') as f:
