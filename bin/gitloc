@@ -1,5 +1,10 @@
 #!/usr/bin/env python2.7
 
+'''
+Git LOC: log commit details for future reference,
+reporting work, or estimating personal productivity
+'''
+
 import os, subprocess
 import re
 import csv
