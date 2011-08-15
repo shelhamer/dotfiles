@@ -1,0 +1,65 @@
+#!/usr/bin/env python2.7
+
+'''
+Git Mail: archive and send a git repo by email with a plain text message.
+
+archive is sent as a zip attachment named after the repo
+from address is set to git email
+
+Automates sharing with impoverished (versioning-less) collaborators
+'''
+
+import sys, os, getopt
+import subprocess as proc
+
+import smtplib
+from email import encoders
+from email.mime.multipart import MIMEMultipart, MIMEBase
+
+GIT_PATH = '/usr/local/bin/git'
+MAIL_HOST = <mail_host>
+MAIL_USER = <mail_user>
+MAIL_PASS = <mail_password>
+
+# input
+addr_to = raw_input('To: ')
+subject = raw_input('Subject: ')
+msg_text = raw_input('Message: ')
+
+# find out repo name (the top directory)
+repo = proc.check_output([GIT_PATH, 'rev-parse', '--show-toplevel'])
+repo = os.path.basename(repo).strip()
+
+# find out git-configured email
+addr_from = proc.check_output([GIT_PATH, 'config', 'user.email'])
+
+# archive the repo in zip format (as a temporary file)
+try:
+  archive_f = '%s.zip' % repo
+  archive = proc.check_output([GIT_PATH, 'archive', 'HEAD', '--format=zip'])
+except CalledProcessError:
+  print "Could not archive the repo"
+  exit(1)
+
+# assemble mail
+msg = MIMEMultipart()
+msg['Subject'] = subject or 'Latest %s code' % repo
+msg['From'] = addr_from
+msg['To'] = addr_to
+msg.preamble = msg_text
+
+zip_attach = MIMEBase('application', 'zip')
+zip_attach.set_payload(archive)
+encoders.encode_base64(zip_attach)
+zip_attach.add_header('Content-Disposition', 'zip_attachment',
+                      filename=archive_f)
+
+msg.attach(zip_attach)
+composed_msg = msg.as_string()
+
+# send mail w/ repo attached
+server = smtplib.SMTP(MAIL_HOST)
+server.starttls()
+server.login(MAIL_USER, MAIL_PASS)
+server.sendmail(addr_from, addr_to, composed_msg)
+server.quit()
