@@ -15,6 +15,7 @@ import subprocess as proc
 import smtplib
 from email import encoders
 from email.mime.multipart import MIMEMultipart, MIMEBase
+from email.mime.text import MIMEText
 
 GIT_PATH = '/usr/local/bin/git'
 MAIL_HOST = <mail_host>
@@ -47,6 +48,9 @@ msg['Subject'] = subject or 'Latest %s code' % repo
 msg['From'] = addr_from
 msg['To'] = addr_to
 msg.preamble = msg_text
+
+msg_body = MIMEText(msg_text, 'plain')
+msg.attach(msg_body)
 
 zip_attach = MIMEBase('application', 'zip')
 zip_attach.set_payload(archive)
