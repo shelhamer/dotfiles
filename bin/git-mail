@@ -22,9 +22,33 @@ MAIL_HOST = <mail_host>
 MAIL_USER = <mail_user>
 MAIL_PASS = <mail_password>
 
+treeish = addr_to = subject = archive_f = None
+
+# args and options
+try:
+  opts, args = getopt.getopt(sys.argv[1:], 'fts',
+                            ['to=', 'subject=', 'filename='])
+  for o, a in opts:
+    if o in ('-t', '--to'):
+      addr_to = a
+    if o in ('-s', '--subject'):
+      subject = a
+    if o in ('-f', '--filename'):
+      archive_f = a
+
+  if args[0]:
+    treeish = args[0]
+except getopt.GetoptError, err:
+  print str(err)
+  sys.exit(2)
+except IndexError:
+  pass
+
 # input
-addr_to = raw_input('To: ')
-subject = raw_input('Subject: ')
+if not addr_to:
+  addr_to = raw_input('To: ')
+if not subject:
+  subject = raw_input('Subject: ')
 msg_text = raw_input('Message: ')
 
 # find out repo name (the top directory)
@@ -34,10 +58,13 @@ repo = os.path.basename(repo).strip()
 # find out git-configured email
 addr_from = proc.check_output([GIT_PATH, 'config', 'user.email'])
 
+# default treeish to archive is HEAD
+treeish = treeish or 'HEAD'
+
 # archive the repo in zip format (as a temporary file)
+archive_f = archive_f or '%s.zip' % repo
 try:
-  archive_f = '%s.zip' % repo
-  archive = proc.check_output([GIT_PATH, 'archive', 'HEAD', '--format=zip'])
+  archive = proc.check_output([GIT_PATH, 'archive', treeish, '--format=zip'])
 except CalledProcessError:
   print "Could not archive the repo"
   exit(1)
