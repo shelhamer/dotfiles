@@ -7,6 +7,9 @@ archive is sent as a zip attachment named after the repo
 from address is set to git email
 
 Automates sharing with impoverished (versioning-less) collaborators
+
+INSTALL:
+place in your PATH to be able to call "git mail" like a standard git command
 '''
 
 import sys, os, getopt
