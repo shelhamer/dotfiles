@@ -70,6 +70,10 @@ except CalledProcessError:
   exit(1)
 
 # assemble mail
+addr_from = addr_from.strip()
+addr_to = addr_to.strip()
+subject = subject.strip()
+
 msg = MIMEMultipart()
 msg['Subject'] = subject or 'Latest %s code' % repo
 msg['From'] = addr_from
