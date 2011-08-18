@@ -59,7 +59,15 @@ if not addr_to:
   addr_to = raw_input('To: ')
 if not subject:
   subject = raw_input('Subject: ')
-msg_text = raw_input('Message: ')
+
+print 'Message: (enter a blank line to finish)'
+msg_input = []
+while True:
+  msg_line = raw_input()
+  if len(msg_line) == 0:
+    break;
+  msg_input.append(msg_line)
+msg_text = '\n'.join(msg_input)
 
 # find out repo name (the top directory)
 repo = proc.check_output([GIT_PATH, 'rev-parse', '--show-toplevel'])
