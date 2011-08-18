@@ -25,12 +25,12 @@ MAIL_HOST = <mail_host>
 MAIL_USER = <mail_user>
 MAIL_PASS = <mail_password>
 
-treeish = addr_to = subject = archive_f = None
+treeish = addr_to = subject = archive_f = log = None
 
 # args and options
 try:
   opts, args = getopt.getopt(sys.argv[1:], 'fts',
-                            ['to=', 'subject=', 'filename='])
+                            ['to=', 'subject=', 'filename=', 'log='])
   for o, a in opts:
     if o in ('-t', '--to'):
       addr_to = a
@@ -38,6 +38,13 @@ try:
       subject = a
     if o in ('-f', '--filename'):
       archive_f = a
+    if o == '--log':
+      # include specified number of commits for an integer arg,
+      # or default to the entire log
+      try:
+        log = int(a)
+      except (TypeError, ValueError):
+        log = True
 
   if args[0]:
     treeish = args[0]
@@ -93,9 +100,20 @@ encoders.encode_base64(zip_attach)
 zip_attach.add_header('Content-Disposition', 'attachment',
                       filename=archive_f)
 msg.attach(zip_attach)
-composed_msg = msg.as_string()
+
+# retrieve commit log and attach (if specified)
+if log:
+  log_call = [GIT_PATH, 'log']
+  if log is not True: # include number of log entries when specified
+    log_call.append('-%d' % log)
+  repo_log = proc.check_output(log_call)
+  log_attach = MIMEText(repo_log, 'plain')
+  log_attach.add_header('Content-Disposition', 'attachment',
+                        filename='history.txt')
+  msg.attach(log_attach)
 
 # send mail w/ repo attached
+composed_msg = msg.as_string()
 server = smtplib.SMTP(MAIL_HOST)
 server.starttls()
 server.login(MAIL_USER, MAIL_PASS)
