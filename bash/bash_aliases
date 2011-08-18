@@ -1,0 +1,49 @@
+## basics
+
+# nice dir lists
+alias ls="ls -F -G"
+alias ll="ls -lh"
+alias la="ls -a"
+
+# default args
+alias cp="cp -r"
+alias mv="mv -i"
+alias rm="rm -i"
+alias md="mkdir -p"
+
+alias grep="grep --color=auto"
+
+alias nano="nano -w"
+
+alias screen="screen -D -R" # I never fail to have a screen open
+
+# sloppy typing
+alias sl="ls"
+alias pc="cp"
+alias vm="mv"
+alias mr="rm"
+
+## quickest possible access to common dirs
+alias cdh="cd ~/h"
+alias cdd="cd ~/h/Dev"
+alias cdn="cd ~/h/Notebook"
+alias cdp="cd ~/h/Projects"
+alias cdw="cd ~/h/Work"
+alias cdt="cd ~/h/Temp"
+
+## development
+alias git="hub" # see http://defunkt.io/hub
+alias g="git"
+
+alias matlab="matlab -nosplash -nodesktop"
+
+alias mkve='mkvirtualenv --no-site-packages --python=/usr/local/Cellar/python/2.7.2/bin/python'
+alias mkve3='mkvirtualenv --no-site-packages --python=/usr/local/Cellar/python3/3.2/bin/python3'
+
+## misc.
+alias sep="echo -e '\033[31;40m================================================================================\033[0m'"
+
+alias h4x0rz="cat /dev/urandom | hexdump -C | grep --color=auto 'ca fe'"
+
+alias can-haz="sudo apt-get install"
+alias haz-moar="sudo apt-get update ; sudo apt-get upgrade"

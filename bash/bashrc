@@ -1,0 +1,28 @@
+# history
+HISTSIZE=1000
+HISTFILESIZE=2000
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+if [ -n "$PS1" ]
+then
+  # the transitional probability of `ls` after `cd` approaches 1,
+  # so just do the `ls` automatically
+  function cd() {
+    builtin cd "$@"
+    ls
+  }
+
+  # git branch and dirty status in prompt
+  function parse_git_dirty {
+    [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+  }
+  function parse_git_branch {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)] /"
+  }
+fi
+
+# prompt
+PS1='\[\e[37;40m\]\h \[\e[34;40m\]\W \[\e[31;40m\]$(parse_git_branch)\[\e[0m\]'

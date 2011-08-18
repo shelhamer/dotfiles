@@ -1,0 +1,34 @@
+[user]
+  name = <name>
+  email = <email>
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+[alias]
+  st = status -sb
+  ci = commit
+  co = checkout
+  br = branch
+  brr = branch -r
+  df = diff
+  lg = log --oneline --decorate
+  lgs = log --stat
+  lgp = log -p
+  lgr = log --graph --pretty=oneline --abbrev-commit
+  lgv = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  rb = rebase -i
+  sh = show
+  done = commit -a -m
+  mail = !/usr/local/bin/gitmail
+[merge]
+  tool = opendiff
+  summary = true
+[core]
+  autocrlf = input
+[push]
+  default = tracking
+[github]
+  user = <github_user>
+  token = <github_token>
