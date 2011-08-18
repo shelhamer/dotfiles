@@ -86,12 +86,12 @@ msg.preamble = msg_text
 msg_body = MIMEText(msg_text, 'plain')
 msg.attach(msg_body)
 
+# attach archive as zip
 zip_attach = MIMEBase('application', 'zip')
 zip_attach.set_payload(archive)
 encoders.encode_base64(zip_attach)
-zip_attach.add_header('Content-Disposition', 'zip_attachment',
+zip_attach.add_header('Content-Disposition', 'attachment',
                       filename=archive_f)
-
 msg.attach(zip_attach)
 composed_msg = msg.as_string()
 
