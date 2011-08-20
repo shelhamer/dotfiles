@@ -27,6 +27,6 @@ if [ -f `brew --prefix`/etc/autojump ]; then
   . `brew --prefix`/etc/autojump
 fi
 
-source ~/.bashrc
 source ~/.bash_aliases
+source ~/.bashrc
 source ~/.bash_login
