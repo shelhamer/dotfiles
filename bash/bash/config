@@ -6,15 +6,9 @@ HISTCONTROL=ignoredups:ignorespace
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+# interactive prompt
 if [ -n "$PS1" ]
 then
-  # the transitional probability of `ls` after `cd` approaches 1,
-  # so just do the `ls` automatically
-  function cd() {
-    builtin cd "$@"
-    ls
-  }
-
   # git branch and dirty status in prompt
   function parse_git_dirty {
     [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
