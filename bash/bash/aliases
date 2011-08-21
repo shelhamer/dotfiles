@@ -30,13 +30,13 @@ function cd() {
   ls
 }
 
-# quickest possible access to common dirs
-alias cdh="cd ~/h"
-alias cdd="cd ~/h/Dev"
-alias cdn="cd ~/h/Notebook"
-alias cdp="cd ~/h/Projects"
-alias cdw="cd ~/h/Work"
-alias cdt="cd ~/h/Temp"
+# quick access to common dirs
+# see completions, completion_scripts/dir_completion
+function h { cd ~/h/"$*"; }
+function d { cd ~/h/Dev/"$*"; }
+function n { cd ~/h/Notebook/$*; }
+function p { cd ~/h/Projects/"$*"; }
+function w { cd ~/h/Work/"$*"; }
 
 ## development
 

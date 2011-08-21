@@ -1,1 +1,6 @@
 source ~/.bash/completion_scripts/git_completion
+complete -C "~/.bash/completion_scripts/dir_completion ''" -o default h
+complete -C "~/.bash/completion_scripts/dir_completion Dev" -o default d
+complete -C "~/.bash/completion_scripts/dir_completion Notebook" -o default n
+complete -C "~/.bash/completion_scripts/dir_completion Projects" -o default p
+complete -C "~/.bash/completion_scripts/dir_completion Work" -o default w
