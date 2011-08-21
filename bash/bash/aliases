@@ -62,6 +62,8 @@ alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 
 ## misc.
+alias reload="source ~/.bash_profile"
+
 alias sep="echo -e '\033[31;40m================================================================================\033[0m'"
 
 alias h4x0rz="cat /dev/urandom | hexdump -C | grep --color=auto 'ca fe'"
