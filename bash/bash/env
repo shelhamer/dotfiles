@@ -1,5 +1,4 @@
-SVN_EDITOR="/usr/bin/mate -w" export SVN_EDITOR
-GIT_EDITOR="/usr/bin/mate -w" export GIT_EDITOR
+## path
 
 # homebrew
 PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
@@ -7,22 +6,23 @@ PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
 # homebrew python 2.7
 PATH="/usr/local/share/python:${PATH}"
 
-# python virtual environments
-WORK_ON="${HOME}/h/Dev/python/envs"
-if [ -f /usr/local/share/python/virtualenvwrapper.sh ]; then
-  source /usr/local/share/python/virtualenvwrapper.sh
-fi
-
 # python startup
 export PYTHONSTARTUP="${HOME}/.pythonrc.py"
-
-# ruby via rvm
-[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 
 # Node.js
 NODE_PATH="/usr/local/lib/node:${NODE_PATH}"
 
-# Autojump
+## editor
+
+SVN_EDITOR="/usr/bin/mate -w" export SVN_EDITOR
+GIT_EDITOR="/usr/bin/mate -w" export GIT_EDITOR
+
+## extensions
+
+# ruby via rvm
+[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
+
+# autojump
 if [ -f `brew --prefix`/etc/autojump ]; then
   . `brew --prefix`/etc/autojump
 fi
