@@ -1,10 +1,5 @@
 ## basics
 
-# nice dir lists
-alias ls="ls -F -G"
-alias ll="ls -lh"
-alias la="ls -a"
-
 # default args
 alias cp="cp -r"
 alias mv="mv -i"
@@ -13,9 +8,12 @@ alias md="mkdir -p"
 
 alias grep="grep --color=auto"
 
-alias nano="nano -w"
-
 alias screen="screen -D -R" # I never fail to have a screen open
+
+# ls
+alias ls="ls -F -G"
+alias ll="ls -lh"
+alias la="ls -a"
 
 # sloppy typing
 alias sl="ls"
@@ -23,7 +21,16 @@ alias pc="cp"
 alias vm="mv"
 alias mr="rm"
 
-## quickest possible access to common dirs
+## navigation
+
+# the transitional probability of `ls` after `cd` approaches 1,
+# so just do the `ls` automatically
+function cd() {
+  builtin cd "$@"
+  ls
+}
+
+# quickest possible access to common dirs
 alias cdh="cd ~/h"
 alias cdd="cd ~/h/Dev"
 alias cdn="cd ~/h/Notebook"
@@ -32,11 +39,15 @@ alias cdw="cd ~/h/Work"
 alias cdt="cd ~/h/Temp"
 
 ## development
+
+# git
 alias git="hub" # see http://defunkt.io/hub
 alias g="git"
 
+# matlab
 alias matlab="matlab -nosplash -nodesktop"
 
+# python
 alias mkve='mkvirtualenv --no-site-packages --python=/usr/local/Cellar/python/2.7.2/bin/python'
 alias mkve3='mkvirtualenv --no-site-packages --python=/usr/local/Cellar/python3/3.2/bin/python3'
 
