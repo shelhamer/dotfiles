@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# socks-on.sh <remote_host> <remote_user> <port> <interface>
+# opens a SOCKS proxy tunnel and configures OS X to enable it.
+#
+# The proxy is closed and disabled in OS X networking automatically
+# on script exit.
+#
+# Args default to:
+# - remote_host = environment var SOCKS_HOST
+# - remote_user = currently logged-in user
+# - port = 9999
+# - iface = Wi-Fi, the default OS X wireless interface
+
 ## input
 remote_host=${1:-$SOCKS_HOST}
 remote_user=${2:-`whoami`}
