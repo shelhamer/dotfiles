@@ -10,7 +10,9 @@
   st = status -sb
   ci = commit
   co = checkout
+  cl = clone
   br = branch
+  done = commit -a -m
   df = diff
   lg = log --oneline --decorate
   lgs = log --stat
@@ -18,7 +20,6 @@
   lgr = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   rb = rebase -i
   sh = show
-  done = commit -a -m
 [merge]
   tool = opendiff
   summary = true
