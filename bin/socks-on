@@ -1,0 +1,33 @@
+#!/bin/bash
+
+## input
+remote_host=${1:-$SOCKS_HOST}
+remote_user=${2:-`whoami`}
+port=${3:-9999}
+iface=${4:-Wi-Fi}
+
+## traps
+
+# turn off proxy when terminating
+trap 'disable_proxy' TERM
+trap 'disable_proxy' INT
+trap 'disable_proxy' KILL
+
+disable_proxy()
+{
+  networksetup -setsocksfirewallproxystate $iface off
+  exit 0
+}
+
+## begin
+
+# turn on SOCKS proxy in OS X network management
+networksetup -setsocksfirewallproxy $iface localhost $port
+networksetup -setsocksfirewallproxystate $iface on
+
+# open SOCKS connection
+ssh -N -D $port "${remote_user}@${remote_host}" -i ~/.ssh/id_rsa
+
+## Note:
+## if we were interested in the current state:
+##networksetup -getsocksfirewallproxy Wi-F
