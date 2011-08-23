@@ -22,6 +22,7 @@ alias vm="mv"
 alias mr="rm"
 
 ## navigation
+alias ..="cd .."
 
 # the transitional probability of `ls` after `cd` approaches 1,
 # so just do the `ls` automatically
