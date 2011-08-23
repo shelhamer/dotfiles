@@ -12,6 +12,7 @@
   co = checkout
   cl = clone
   br = branch
+  push = push --tags
   all = add -A
   done = commit -a -m
   amend = commit --amend -C HEAD
