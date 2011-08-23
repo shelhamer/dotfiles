@@ -12,8 +12,12 @@
   co = checkout
   cl = clone
   br = branch
+  all = add -A
   done = commit -a -m
+  amend = commit --amend -C HEAD
+  undo = reset --soft HEAD^
   df = diff
+  staged = diff --cached
   lg = log --oneline --decorate
   lgs = log --stat
   lgp = log -p
