@@ -69,6 +69,8 @@ while True:
   msg_input.append(msg_line)
 msg_text = '\n'.join(msg_input)
 
+print "Preparing mail..."
+
 # find out repo name (the top directory)
 repo = proc.check_output([GIT_PATH, 'rev-parse', '--show-toplevel'])
 repo = os.path.basename(repo).strip()
@@ -121,9 +123,12 @@ if log:
   msg.attach(log_attach)
 
 # send mail w/ repo attached
+print "Sending..."
 composed_msg = msg.as_string()
 server = smtplib.SMTP(MAIL_HOST)
 server.starttls()
 server.login(MAIL_USER, MAIL_PASS)
 server.sendmail(addr_from, addr_to, composed_msg)
 server.quit()
+
+print "Done"
