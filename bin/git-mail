@@ -111,7 +111,7 @@ msg.attach(zip_attach)
 
 # retrieve commit log and attach (if specified)
 if log:
-  log_call = [GIT_PATH, 'log']
+  log_call = [GIT_PATH, 'log', '--stat']
   if log is not True: # include number of log entries when specified
     log_call.append('-%d' % log)
   repo_log = proc.check_output(log_call)
