@@ -1,0 +1,11 @@
+#!/bin/sh
+
+PORT=${1:-8080}
+VERSION=${2:-2}
+
+if [ "$VERSION" = "2" ];
+then
+  python2.7 -m SimpleHTTPServer $PORT
+else
+  python3 -m http.server $PORT
+fi
