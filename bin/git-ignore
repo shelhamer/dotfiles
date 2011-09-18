@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# ignore further changes to a tracked file (if an arg given)
+# show files ignored in such a way (otherwise)
+#
+# refer to http://ftp.sunet.se/pub/Linux/kernel.org/software/scm/git/docs/git-update-index.html
+
+if [ -n "$1" ];
+then
+  git update-index --assume-unchanged $1
+else
+  git ls-files -v | grep -e "^[hsmrck]"
+fi
