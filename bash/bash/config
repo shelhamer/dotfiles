@@ -1,6 +1,6 @@
 # history
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=10000
 HISTCONTROL=ignoredups:ignorespace
 
 # append to the history file, don't overwrite it
