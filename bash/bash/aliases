@@ -71,7 +71,16 @@ alias rst='touch tmp/restart.txt'
 ## misc.
 alias reload="source ~/.bash_profile"
 
-alias sep="echo -e '\033[31;40m================================================================================\033[0m'"
+function sep() {
+  let FILL_SIZE=${COLUMNS}-9
+
+  echo -ne "\033[31;40m"
+  for i in $(seq $FILL_SIZE); do
+    echo -ne "="
+  done
+
+  date +" %H:%M:%S"
+}
 
 alias h4x0rz="cat /dev/urandom | hexdump -C | grep --color=auto 'ca fe'"
 
