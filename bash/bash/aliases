@@ -46,10 +46,13 @@ alias git="hub" # see http://defunkt.io/hub
 alias g="git"
 alias gci="git commit"
 alias gco="git checkout"
+alias gs="git st" # I'll worry about shadowing ghostscript if I use it
+alias gl="git lg"
 alias ga="git add"
 alias gb="git branch"
 alias gp="git push"
 alias gf="git fetch"
+alias gm="git merge"
 
 # matlab
 alias matlab="matlab -nosplash -nodesktop"
