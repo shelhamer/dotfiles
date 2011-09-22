@@ -28,6 +28,7 @@
   summary = true
 [core]
   autocrlf = input
+  excludesfile = <home_path>/.gitignore
 [push]
   default = tracking
 [github]
