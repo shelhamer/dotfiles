@@ -34,10 +34,12 @@ function cd() {
 # quick access to common dirs
 # see completions, completion_scripts/dir_completion
 function h { cd ~/h/"$*"; }
-function d { cd ~/h/Dev/"$*"; }
-function n { cd ~/h/Notebook/$*; }
-function p { cd ~/h/Projects/"$*"; }
-function w { cd ~/h/Work/"$*"; }
+function d { cd ~/h/context/"$*"; }
+function f { cd ~/h/focus/"$*"; }
+function d { cd ~/h/dev/"$*"; }
+function n { cd ~/h/notebook/$*; }
+function p { cd ~/h/projects/"$*"; }
+function w { cd ~/h/work/"$*"; }
 
 ## development
 
