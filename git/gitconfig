@@ -12,7 +12,7 @@
   ci = commit
   st = status -sb
   df = diff
-  staged = diff --cached
+  stage = diff --cached
   br = branch
   rb = rebase
   amend = commit --amend -C HEAD
