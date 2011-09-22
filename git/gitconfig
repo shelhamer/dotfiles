@@ -7,21 +7,21 @@
   branch = auto
   interactive = auto
 [alias]
-  st = status -sb
-  ci = commit
-  co = checkout
   cl = clone
-  br = branch
-  push = push --tags
-  amend = commit --amend -C HEAD
-  undo = reset --soft HEAD^
+  co = checkout
+  ci = commit
+  st = status -sb
   df = diff
   staged = diff --cached
+  br = branch
+  rb = rebase
+  amend = commit --amend -C HEAD
+  undo = reset --soft HEAD^
+  push = push --tags
   lg = log --oneline --decorate
   lgs = log --stat
   lgp = log -p
   lgr = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-  rb = rebase -i
   sh = show
 [merge]
   tool = opendiff

@@ -44,16 +44,18 @@ function w { cd ~/h/Work/"$*"; }
 # git
 alias git="hub" # see http://defunkt.io/hub
 alias g="git"
-alias gci="git commit"
+alias gcl="git clone"
 alias gco="git checkout"
+alias gci="git commit"
+alias ga="git add"
 alias gs="git st" # I'll worry about shadowing ghostscript if I use it
 alias gd="git diff"
-alias gl="git lg"
-alias ga="git add"
 alias gb="git branch"
-alias gp="git push"
+alias gr="git rebase"
 alias gf="git fetch"
 alias gm="git merge"
+alias gp="git push"
+alias gl="git lg"
 
 # matlab
 alias matlab="matlab -nosplash -nodesktop"
