@@ -13,8 +13,6 @@
   cl = clone
   br = branch
   push = push --tags
-  all = add -A
-  done = commit -a -m
   amend = commit --amend -C HEAD
   undo = reset --soft HEAD^
   df = diff

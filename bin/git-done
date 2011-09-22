@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# git-done <msg>
+#
+# commit all changes:
+# - new files in the tree
+# - changes to tracked files
+# - files removed from the tree
+# use message, if given
+
+git add -A
+if [ -n "$1" ];
+then
+  git commit -m "$1"
+else
+  git commit
+fi
