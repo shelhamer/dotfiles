@@ -47,6 +47,7 @@ alias g="git"
 alias gci="git commit"
 alias gco="git checkout"
 alias gs="git st" # I'll worry about shadowing ghostscript if I use it
+alias gd="git diff"
 alias gl="git lg"
 alias ga="git add"
 alias gb="git branch"
