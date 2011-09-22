@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# git-shampoo <treeish>
+#
+# throw out changes and return to a pristine HEAD
+# or any other commit
+
+treeish=${1:-HEAD}
+git reset --hard $treeish && git clean -fd
