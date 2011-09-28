@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# h5b <targets...>
+#
+# build h5bp project w/ ant
+# defaults to running "build" target but will run any specified targets
+# in order
+# ex: h5b clean buildkit -> "ant clean ; ant buildkit"
+
+target="$@"
+if [ -z "$target" ];
+then
+  target="build"
+fi
+
+cd build
+
+for trg in "$target";
+do
+  ant $trg
+done
+
+cd ..
