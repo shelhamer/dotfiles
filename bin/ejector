@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# ejector.sh <mountpoints|to|eject>
+# unmounts and ejects the volumes corresponding to the given mountpoints
+# w/ OS X disk utility (convenient for de-docking a laptop)
+#
+# defaults to a hardcoded list of volumes if no args are given
+# mountpoints must be separated by pipes
+
+## input
+disks=""
+
+if [ "$#" -ne "0" ]
+then
+  disks="$@"
+fi
+
+# disk name splitting
+SAVE_IFS=$IFS
+IFS="|"
+
+## eject
+for disk in $disks
+do
+  if [ -d "$disk" ]
+  then
+    diskutil eject "$disk" > /dev/null
+    diskname=$(basename "$disk")
+    echo "Ejected $diskname"
+  fi
+done
+
+IFS=$SAVE_IFS
