@@ -22,7 +22,108 @@ alias vm="mv"
 alias mr="rm"
 alias oepn="open"
 
+## navigation## basics
+
+# default args
+alias cp="cp -r"
+alias mv="mv -i"
+alias rm="rm -i"
+alias md="mkdir -p"
+
+alias grep="grep --color=auto"
+
+alias screen="screen -D -R" # I never fail to have a screen open
+
+# ls
+alias ls="ls -F -G"
+alias ll="ls -lh"
+alias la="ls -a"
+
+# sloppy typing
+alias sl="ls"
+alias pc="cp"
+alias vm="mv"
+alias mr="rm"
+
 ## navigation
+alias ..="cd .."
+
+# the transitional probability of `ls` after `cd` approaches 1,
+# so just do the `ls` automatically
+function cd() {
+  builtin cd "$@"
+  ls
+}
+
+# quick access to common dirs
+# see completions, completion_scripts/dir_completion
+function h { cd ~/h/"$*"; }
+function c { cd ~/h/context/"$*"; }
+function f { cd ~/h/focus/"$*"; }
+function d { cd ~/h/dev/"$*"; }
+function n { cd ~/h/notebook/$*; }
+function p { cd ~/h/projects/"$*"; }
+function w { cd ~/h/work/"$*"; }
+
+## development
+
+# git
+alias git="hub" # see http://defunkt.io/hub
+alias g="git"
+alias gcl="git clone"
+alias gco="git checkout"
+alias gci="git commit"
+alias ga="git add"
+alias gap="git add --patch"
+alias gs="git st" # I'll worry about shadowing ghostscript if I use it
+alias gd="git diff"
+alias gds="git diff --cached"
+alias gb="git branch"
+alias gr="git rebase"
+alias gri="git rebase --interactive"
+alias grc="git rebase --continue"
+alias gf="git fetch"
+alias gm="git merge"
+alias gp="git push"
+alias gl="git lg"
+
+# matlab
+alias matlab="matlab -nosplash -nodesktop"
+
+# python
+alias mkve='mkvirtualenv --no-site-packages --python=/usr/local/Cellar/python/2.7.2/bin/python'
+alias mkve3='mkvirtualenv --no-site-packages --python=/usr/local/Cellar/python3/3.2/bin/python3'
+
+# rails
+alias rc='rails console'
+alias rs='rails server'
+alias rg='rails generate'
+alias autot='autotest -rails'
+alias tlog='tail -f log/development.log'
+alias scaffold='rails generate nifty_scaffold'
+alias migrate='rake db:migrate db:test:clone'
+alias rst='touch tmp/restart.txt'
+
+## misc.
+alias o="open"
+alias reload="source ~/.bash_profile"
+
+function sep() {
+  let FILL_SIZE=${COLUMNS}-9
+
+  echo -ne "\033[31;40m"
+  for i in $(seq $FILL_SIZE); do
+    echo -ne "="
+  done
+
+  date +" %H:%M:%S"
+}
+
+alias h4x0rz="cat /dev/urandom | hexdump -C | grep --color=auto 'ca fe'"
+
+alias can-haz="sudo apt-get install"
+alias haz-moar="sudo apt-get update ; sudo apt-get upgrade"
+
 alias ..="cd .."
 
 # the transitional probability of `ls` after `cd` approaches 1,
