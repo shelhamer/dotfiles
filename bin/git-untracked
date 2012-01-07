@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# list untracked files/dirs
+git ls-files --other --exclude-standard --directory
