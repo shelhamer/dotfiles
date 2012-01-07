@@ -163,7 +163,8 @@ alias grc="git rebase --continue"
 alias gf="git fetch"
 alias gm="git merge"
 alias gp="git push"
-alias gpo="git push origin master"
+alias gu="git pull"
+alias gpo="git push origin"
 alias gl="git lg"
 
 # matlab
