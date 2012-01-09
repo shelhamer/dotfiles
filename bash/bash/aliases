@@ -20,7 +20,6 @@ alias sl="ls"
 alias pc="cp"
 alias vm="mv"
 alias mr="rm"
-alias oepn="open"
 
 ## navigation
 alias ..="cd .."
@@ -85,4 +84,7 @@ alias rst='touch tmp/restart.txt'
 
 ## misc.
 alias o="open"
+alias pb="pbcopy"
+alias pv="pbpaste"
+
 alias reload="source ~/.bash_profile"
