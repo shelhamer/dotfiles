@@ -5,29 +5,37 @@ Git LOC: log commit details for future reference,
 reporting work, or estimating personal productivity
 '''
 
-import os, subprocess
+import sys, os, subprocess
 import re
 import csv
 
 GIT_PATH = '/usr/local/bin/git'
 COMMIT_FILE = '%s/commits.csv' % os.getenv('HOME')
+AUTHOR_NAME = 'Author'
 
 commit_str = subprocess.check_output([GIT_PATH, 'log', '-1',
-             '--shortstat', '--pretty=format:%ai%n%h%n%s'])
+             '--shortstat', '--pretty=format:%an%n%ai%n%h%n%s'])
 
 # commit lines are:
-# 0 time in yyyy-mm-dd hh:mm:ss -tzone
-# 1 sha1 hash, abbreviated
-# 2 subject line of commit
-# 3 # files changed, # insertions, # deletions
+# 0 author
+# 1 time in yyyy-mm-dd hh:mm:ss -tzone
+# 2 sha1 hash, abbreviated
+# 3 subject line of commit
+# 4 # files changed, # insertions, # deletions
 raw_commit_lines = commit_str.split('\n')[:-1]
-commit_data = raw_commit_lines[:-1]
+author = raw_commit_lines[0]
+commit_data = raw_commit_lines[1:-1]
+modifications = raw_commit_lines[-1]
+
+# only log self-authored commits (filter out merges)
+if author != AUTHOR_NAME:
+  sys.exit(0)
 
 #(no tzone for format compatibility)
 commit_data[0] = commit_data[0][:-6]
 
 # split up modification quantities (files, insertions, deletions)
-commit_data.extend(re.findall(r'\d+', raw_commit_lines[-1]))
+commit_data.extend(re.findall(r'\d+', modifications))
 
 # include repo (project dir)
 repo = subprocess.check_output([GIT_PATH, 'rev-parse', '--show-toplevel'])
