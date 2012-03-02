@@ -43,6 +43,8 @@ function w { cd ~/h/work/"$*"; }
 
 ## development
 
+alias m="mate"
+
 # git
 alias git="hub" # see http://defunkt.io/hub
 alias g="git"
