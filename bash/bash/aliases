@@ -92,4 +92,6 @@ alias o="open"
 alias pb="pbcopy"
 alias pv="pbpaste"
 
+alias to="todo.sh"
+
 alias reload="source ~/.bash_profile"

@@ -1,4 +1,6 @@
 source ~/.bash/completion_scripts/git_completion
+source ~/.bash/completion_scripts/todo_completion
+complete -F _todo to
 complete -C "~/.bash/completion_scripts/dir_completion ''" -o default h
 complete -C "~/.bash/completion_scripts/dir_completion context" -o default c
 complete -C "~/.bash/completion_scripts/dir_completion focus" -o default f
