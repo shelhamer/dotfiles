@@ -22,6 +22,7 @@
   lgs = log --stat
   lgp = log -p
   lgr = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lm = log --merge --left-right -p
   sh = show
 [merge]
   tool = opendiff
