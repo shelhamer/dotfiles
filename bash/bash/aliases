@@ -89,6 +89,8 @@ alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 
 ## misc.
+
+# osx specific: file opening + clipboard
 alias o="open"
 alias pb="pbcopy"
 alias pv="pbpaste"
