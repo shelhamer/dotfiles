@@ -90,6 +90,11 @@ alias rst='touch tmp/restart.txt'
 
 ## misc.
 
+# command history inspection
+alias count="sort | uniq -c | sort -rn"
+alias hist="history | cut -c8- | cut -d' ' -f1 | count"
+alias histf="history | cut -c8- | count"
+
 # osx specific: file opening + clipboard
 alias o="open"
 alias pb="pbcopy"
