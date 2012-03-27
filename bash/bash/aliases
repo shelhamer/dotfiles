@@ -15,6 +15,7 @@ alias screen="screen -D -R" # I never fail to have a screen open
 alias ls="ls -F -G"
 alias ll="ls -lh"
 alias la="ls -a"
+alias lr="ls -t | head -8" # recent activity
 
 # sloppy typing
 alias sl="ls"
