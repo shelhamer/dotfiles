@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# git-topical <topic1 topic2 ...>
+#
+# fetch upstream, update master by rebase, and
+# rebase specified topic branches onto the updated master
+
+## N.B. uncomment the following test to avoid copmlications
+## with uncommitted changes
+# abort on dirty tree
+# if [ -n "$(git status --porcelain)" ]
+# then
+#   echo "Error: the working tree is dirty. Aborting to avoid losing data."
+#   exit 1
+# fi
+
+# fetch upstream changes and check for update to master branch
+# (redirect stderr to stdout because git-fetch displays updates w/ stderr)
+if [ -n "$(git fetch upstream 2>&1 >/dev/null | grep -Po 'master(?=\s+->)')" ]
+then
+  # master has been updated, rebase local master & topic branches
+  git checkout --quiet master
+  git rebase upstream/master
+
+  for branch in "$@"; do
+    echo "Updating branch: $branch"
+    git checkout --quiet "$branch"
+    git rebase master
+  done
+else
+  # no change to master, done
+  echo "No updates to master."
+fi
