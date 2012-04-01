@@ -27,6 +27,9 @@ then
     git checkout --quiet "$branch"
     git rebase master
   done
+
+  # default back to master branch
+  git checkout --quiet master
 else
   # no change to master, done
   echo "No updates to master."
