@@ -5,7 +5,7 @@
 # fetch upstream, update master by rebase, and
 # rebase specified topic branches onto the updated master
 
-## N.B. uncomment the following test to avoid copmlications
+## N.B. uncomment the following test to avoid complications
 ## with uncommitted changes
 # abort on dirty tree
 # if [ -n "$(git status --porcelain)" ]
