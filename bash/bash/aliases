@@ -30,10 +30,11 @@ alias mr="rm"
 # .. n = cd .. n times
 function ..() {
   depth=${1:-1}
-  for ((i=0; i<depth; i++))
+  for ((i=1; i<depth; i++))
   do
-    cd ..
+    builtin cd ..
   done
+  cd ..
 }
 
 # the transitional probability of `ls` after `cd` approaches 1,
