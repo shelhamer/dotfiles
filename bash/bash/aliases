@@ -24,7 +24,6 @@ alias vm="mv"
 alias mr="rm"
 
 ## navigation
-## navigation
 
 # .. = cd ..
 # .. n = cd .. n times
@@ -37,7 +36,7 @@ function ..() {
   cd ..
 }
 
-# the transitional probability of `ls` after `cd` approaches 1,
+# the transition probability of `ls` after `cd` approaches 1,
 # so just do the `ls` automatically
 function cd() {
   builtin cd "$@"
