@@ -1,4 +1,6 @@
 *~
-.DS_Store
 ._*
+doc/tags
+.DS_Store
 .AppleDouble*
+*.tmproj
