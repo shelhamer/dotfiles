@@ -1,0 +1,24 @@
+# Vim Plugins
+
+[notes.vim](https://github.com/xolox/vim-notes)
+[my fork](https://github.com/shelhamer/vim-notes)
+
+Make vim your notebook.
+
+[command-t](http://www.vim.org/scripts/script.php?script_id=3025)
+
+Automagically switch to file based on a text filter. Ported from TextMate,
+hence the name.
+
+[repeat](https://github.com/tpope/vim-repeat)
+
+Enable repeat of plugin maps with "." (for those which support it)
+
+[surround](https://github.com/tpope/vim-surround)
+
+Easy quoting/bracketing/etc.
+
+[vim-pandoc](https://github.com/vim-pandoc/vim-pandoc)
+
+Pandoc mode for syntax, snippets, folding, and citation
+with the markup conversion swiss army knife.

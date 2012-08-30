@@ -11,8 +11,9 @@ export PYTHONSTARTUP="${HOME}/.pythonrc.py"
 
 ## editor
 
-SVN_EDITOR="/usr/bin/mate -w" export SVN_EDITOR
-GIT_EDITOR="/usr/bin/mate -w" export GIT_EDITOR
+export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
+export SVN_EDITOR=$EDITOR
+export GIT_EDITOR=$EDITOR
 
 ## extensions
 

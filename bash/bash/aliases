@@ -55,6 +55,7 @@ function w { cd ~/h/work/"$*"; }
 
 ## development
 
+alias vv="mvim"
 alias v="mvim -v"
 alias m="mate"
 
