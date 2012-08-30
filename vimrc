@@ -32,6 +32,8 @@ set ruler         " show row, col of cursor
 " search
 set hlsearch      " highlight search
 set incsearch     " reveal search incrementally as typed
+set ignorecase    " case-insensitive match...
+set smartcase     " ...except when uppercase letters are given
 
 set backspace=indent,eol,start  " backspace over everything
 set pastetoggle=<F2>            " for pasting verbatim
@@ -91,11 +93,15 @@ autocmd BufWritePre *.* call StripTrailing()
 let g:no_strip_types = ['diff', 'markdown', 'pandoc']
 
 function! StripTrailing()
-  normal mZ
-  if index(g:no_strip_types, &ft) < 0 " whitespace isn't evil in markdown
+  " save last search, cursor position
+  let _s=@/
+  let l = line('.')
+  let c = col('.')
+  if index(g:no_strip_types, &ft) < 0 " whitespace isn't evil for all files
     %s/\s\+$//e
   endif
-  normal `Z
+  let @/=_s
+  call cursor(l, c)
 endfunction
 
 " plugins: pathogen
