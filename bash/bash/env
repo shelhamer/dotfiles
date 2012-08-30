@@ -9,9 +9,6 @@ PATH="/usr/local/share/python:${PATH}"
 # python startup
 export PYTHONSTARTUP="${HOME}/.pythonrc.py"
 
-# Node.js
-NODE_PATH="/usr/local/lib/node:${NODE_PATH}"
-
 ## editor
 
 SVN_EDITOR="/usr/bin/mate -w" export SVN_EDITOR
