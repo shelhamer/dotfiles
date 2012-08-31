@@ -111,6 +111,9 @@ call pathogen#helptags()
 " latex
 let g:Tex_ViewRule_pdf = 'Preview'
 
+" lusty juggler: shorter shortcut
+nmap <silent> <leader>j :LustyJuggler<CR>
+
 " notes
 let g:notes_directory = '~/h/notebook/jot'
 let g:notes_suffix = '.md'
