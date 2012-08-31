@@ -10,6 +10,10 @@ Make vim your notebook.
 Automagically switch to file based on a text filter. Ported from TextMate,
 hence the name.
 
+[lusty juggler](https://github.com/sjbach/lusty)
+
+Fast buffer switching based on recency.
+
 [repeat](https://github.com/tpope/vim-repeat)
 
 Enable repeat of plugin maps with "." (for those which support it)
