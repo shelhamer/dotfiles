@@ -71,7 +71,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " clear search
-nmap <silent> ,/ :nohlsearch<CR>
+nmap <silent> <leader>/ :nohlsearch<CR>
 
 " reflow on Q
 nmap Q gq
