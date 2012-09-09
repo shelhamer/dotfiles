@@ -38,6 +38,9 @@ set smartcase     " ...except when uppercase letters are given
 set backspace=indent,eol,start  " backspace over everything
 set pastetoggle=<F2>            " for pasting verbatim
 
+" folding
+set foldlevelstart=2  " unfold top level at start
+
 " memory
 set history=1000    " number of commands, searches
 set undolevels=1000 " number of mistakes
@@ -49,6 +52,9 @@ colorscheme slate
 " unicode
 set encoding=utf-8
 setglobal fileencoding=utf-8
+
+" spelling
+set spellfile=~/.vim/dict.add
 
 " no backups
 set nobackup
@@ -73,9 +79,15 @@ map <C-l> <C-w>l
 " clear search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
+" fold/unfold
+nmap <leader>z za
+
 " reflow on Q
 nmap Q gq
-vmap Q gqap
+vmap Q gqa
+
+" spelling
+nnoremap <silent> <leader>s :set spell!<CR>
 
 " vim hacking convenience: edit, reload .vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -87,6 +99,9 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 filetype on
 filetype indent on
 filetype plugin on
+
+" spellcheck for text
+" autocmd FileType markdown,pandoc setlocal spell
 
 " strip trailing whitespace on save
 autocmd BufWritePre *.* call StripTrailing()
