@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# cal-proxy
+# configures the Cal library proxy under OS X 
+#
+# The proxy is disabled in OS X networking automatically
+# on script exit.
+#
+
+## input
+url="http://proxy.lib.berkeley.edu/proxy.pac"
+iface=${4:-Wi-Fi}
+
+## traps
+
+# turn off proxy when terminating
+trap 'disable_proxy' TERM
+trap 'disable_proxy' INT
+trap 'disable_proxy' KILL
+
+disable_proxy()
+{
+  networksetup -setautoproxystate $iface off
+  exit 0
+}
+
+## begin
+
+# turn on Cal proxy in OS X network management
+networksetup -setautoproxyurl $iface $url
+networksetup -setautoproxystate $iface on
+networksetup -setpassiveftp $iface on
+
+while true
+do
+  sleep 1
+done
+
+## Note:
+## if we were interested in the current state:
+##networksetup -getautoproxy Wi-F
