@@ -103,6 +103,9 @@ filetype plugin on
 " spellcheck for text
 " autocmd FileType markdown,pandoc setlocal spell
 
+" jump around headers in text
+autocmd FileType markdown,pandoc nmap <silent> <leader>h /^#<CR>
+
 " strip trailing whitespace on save
 autocmd BufWritePre *.* call StripTrailing()
 let g:no_strip_types = ['diff', 'markdown', 'pandoc']
