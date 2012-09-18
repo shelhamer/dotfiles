@@ -1,3 +1,5 @@
+"" general configuation
+
 " vim, not vi
 set nocompatible
 
@@ -64,7 +66,8 @@ set noswapfile
 set visualbell
 set noerrorbells
 
-" custom bindings
+"" custom bindings
+
 let mapleader=','   " map by , instead of /
 
 " command by ;
@@ -126,8 +129,9 @@ autocmd FileType markdown,pandoc nmap <silent> <leader>h /^#<CR>
 let no_strip_types = ['diff', 'markdown', 'pandoc']
 autocmd BufWritePre *.* call StripTrailing(no_strip_types)
 
+"" plugins
 
-" plugins: pathogen
+" pathogen
 call pathogen#infect()
 call pathogen#helptags()
 
