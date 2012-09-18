@@ -112,15 +112,12 @@ function! StripTrailing(...)
   call cursor(l, c)
 endfunction
 
-" automation
+"" automation
 
 " file types
 filetype on
 filetype indent on
 filetype plugin on
-
-" spellcheck for text
-" autocmd FileType markdown,pandoc setlocal spell
 
 " jump around headers in text
 autocmd FileType markdown,pandoc nmap <silent> <leader>h /^#<CR>
