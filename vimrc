@@ -134,10 +134,6 @@ filetype on
 filetype indent on
 filetype plugin on
 
-" jump around headers in text
-autocmd FileType markdown,pandoc nmap <C-D> :call Jump2Search('^#')<CR>
-autocmd FileType markdown,pandoc nmap <C-U> :call Jump2Search('^#', 'b')<CR>
-
 " strip trailing whitespace on save
 let no_strip_types = ['diff', 'markdown', 'pandoc']
 autocmd BufWritePre *.* call StripTrailing(no_strip_types)
