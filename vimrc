@@ -68,7 +68,8 @@ set noerrorbells
 
 "" custom bindings
 
-let mapleader=','   " map by , instead of /
+let mapleader=','       " map by , instead of /
+let maplocalleader='\'  " map local by \
 
 " command by ;
 nnoremap ; :
