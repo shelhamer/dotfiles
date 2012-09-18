@@ -99,6 +99,17 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 "" functions
 
+" jump to pattern
+function! Jump2Search(...)
+  let pattern = a:1
+  let flags = ''
+  if a:0 > 1
+    let flags = a:2
+  endif
+  call search(pattern, flags)
+  norm zt
+endfunction
+
 " strip trailing whitespace
 function! StripTrailing(...)
   let no_strip_types = []
@@ -124,7 +135,8 @@ filetype indent on
 filetype plugin on
 
 " jump around headers in text
-autocmd FileType markdown,pandoc nmap <silent> <leader>h /^#<CR>
+autocmd FileType markdown,pandoc nmap <C-D> :call Jump2Search('^#')<CR>
+autocmd FileType markdown,pandoc nmap <C-U> :call Jump2Search('^#', 'b')<CR>
 
 " strip trailing whitespace on save
 let no_strip_types = ['diff', 'markdown', 'pandoc']
