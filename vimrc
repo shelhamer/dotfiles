@@ -93,6 +93,25 @@ nnoremap <silent> <leader>s :set spell!<CR>
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
+"" functions
+
+" strip trailing whitespace
+function! StripTrailing(...)
+  let no_strip_types = []
+  if a:0 > 0
+    no_strip_types = a:1
+  endif
+  " save last search, cursor position
+  let _s=@/
+  let l = line('.')
+  let c = col('.')
+  if index(no_strip_types, &ft) < 0 " whitespace isn't evil for all files
+    %s/\s\+$//e
+  endif
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
 " automation
 
 " file types
@@ -107,20 +126,9 @@ filetype plugin on
 autocmd FileType markdown,pandoc nmap <silent> <leader>h /^#<CR>
 
 " strip trailing whitespace on save
-autocmd BufWritePre *.* call StripTrailing()
-let g:no_strip_types = ['diff', 'markdown', 'pandoc']
+let no_strip_types = ['diff', 'markdown', 'pandoc']
+autocmd BufWritePre *.* call StripTrailing(no_strip_types)
 
-function! StripTrailing()
-  " save last search, cursor position
-  let _s=@/
-  let l = line('.')
-  let c = col('.')
-  if index(g:no_strip_types, &ft) < 0 " whitespace isn't evil for all files
-    %s/\s\+$//e
-  endif
-  let @/=_s
-  call cursor(l, c)
-endfunction
 
 " plugins: pathogen
 call pathogen#infect()
