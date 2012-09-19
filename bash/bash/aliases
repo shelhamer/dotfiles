@@ -9,9 +9,6 @@ alias mv="mv -i"
 alias rm="rm -i"
 alias md="mkdir -p"
 
-alias grep="grep --color=auto"
-alias grepall="grep -RIn"
-
 alias screen="screen -D -R" # I never fail to have a screen open
 
 # ls
@@ -25,6 +22,22 @@ alias sl="ls"
 alias pc="cp"
 alias vm="mv"
 alias mr="rm"
+
+## search
+alias grep="grep --color=auto"
+alias grepall="grep -RIn" # recursive grep on non-binary files
+
+# highlighter
+function hl() {
+  grep -E $1'|$'
+}
+
+# grep paragraphs
+function grepp() {
+  pattern=$1
+  file=$2
+  awk 'BEGIN{RS="";ORS="\n\n";FS="\n"}/'$pattern'/' $file | hl $pattern
+}
 
 ## navigation
 
