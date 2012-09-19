@@ -115,6 +115,8 @@ alias o="open"
 alias pb="pbcopy"
 alias pv="pbpaste"
 
+alias duh="du -h -d=1"
+
 alias to="todo.sh"
 
 alias reload="source ~/.bashrc"
