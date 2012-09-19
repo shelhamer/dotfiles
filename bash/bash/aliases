@@ -58,8 +58,8 @@ function w { cd ~/h/work/"$*"; }
 
 ## development
 
-alias vv="mvim"
-alias v="mvim -v"
+alias v="mvim"
+alias vv="mvim -v"
 alias m="mate"
 
 # git
