@@ -1,5 +1,8 @@
 ## basics
 
+# pass aliases through sudo
+alias sudo="sudo " # space triggers alias substitution
+
 # default args
 alias cp="cp -r"
 alias mv="mv -i"
