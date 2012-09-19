@@ -99,6 +99,10 @@ vmap Q gqa
 " spelling
 nnoremap <silent> <leader>s :set spell!<CR>
 
+" vim session save/load
+nmap ss :wa<CR>:mksession! ~/.vim/sessions/
+nmap so :wa<CR>:so ~/.vim/sessions/
+
 " vim hacking convenience: edit, reload .vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
