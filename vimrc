@@ -44,8 +44,14 @@ set pastetoggle=<F2>            " for pasting verbatim
 set foldlevelstart=2  " unfold top level at start
 
 " memory
-set history=1000    " number of commands, searches
-set undolevels=1000 " number of mistakes
+set history=1024    " number of commands, searches
+set undolevels=1024 " number of mistakes
+
+" persistence:
+" marks for 128 recent files
+" registers < 256 lines and < 10k in size
+" ignore hlsearch state on start
+set viminfo='128,<256,s10,h
 
 " syntax highlighting
 syntax on
