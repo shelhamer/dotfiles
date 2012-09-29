@@ -8,6 +8,7 @@ alias cp="cp -r"
 alias mv="mv -i"
 alias rm="rm -i"
 alias md="mkdir -p"
+alias scp="scp -r"
 
 alias screen="screen -D -R" # I never fail to have a screen open
 
