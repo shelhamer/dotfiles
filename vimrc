@@ -171,5 +171,10 @@ let g:notes_title_sync = 'rename_file'
 let g:notes_smart_quotes = 1
 let g:notes_list_bullets = ['*', '-', '+']
 
+" paper reading
+let g:papers_directory = '~/h/notebook/papers/'
+
 " pandoc
 let g:pandoc_use_hard_wraps = 1
+"let g:pandoc_auto_format = 1
+let g:pandoc_bibfiles = [g:papers_directory . 'library.bib']
