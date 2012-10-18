@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# git-amend 
+#
+# amend the latest commit to include staged changes
+git commit --amend -C HEAD

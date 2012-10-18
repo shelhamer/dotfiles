@@ -81,6 +81,7 @@ alias g="git"
 alias gcl="git clone"
 alias gco="git checkout"
 alias gci="git commit"
+alias gcm="git commit -m"
 alias ga="git add"
 alias gap="git add --patch"
 alias gs="git st" # I'll worry about shadowing ghostscript if I use it

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# git-undo
+#
+# repeal commit, reverting to staged changes
+reset --soft HEAD^

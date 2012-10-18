@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# git-abort
+#
+# throw out working changes,
+# resetting to latest versioned state
+git reset --hard HEAD

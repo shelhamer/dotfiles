@@ -15,13 +15,11 @@
   stage = diff --cached
   br = branch
   rb = rebase
-  amend = commit --amend -C HEAD
-  undo = reset --soft HEAD^
   push = push --tags
   lg = log --oneline --decorate
-  lgs = log --stat
-  lgp = log -p
-  lgr = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  ls = log --stat
+  lp = log -p
+  lr = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lm = log --merge --left-right -p
   sh = show
 [merge]
