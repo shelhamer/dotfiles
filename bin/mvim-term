@@ -1,9 +1,2 @@
 #!/bin/sh
-
-# mvim-term open MacVim in a shell-command friendly mode for $EDITOR
-# (shell script for compatibility w/ old commands that don't understand args
-#  in $EDITOR)
-# -f don't fork GUI, so that command waits
-# --nomru don't add file to recent files list
-# -c initalization command: return focus to terminal on exit
-mvim -f --nomru -c "au VimLeave * !open -a Terminal"
+mvim -f --nomru -c "au VimLeave * !open -a Terminal" $1
