@@ -3,6 +3,7 @@
 # file-patrol
 # poll directories and take automatic actions
 # delegates actual responsibilities to patrol* scripts
-for patrol in ./patrol* ; do
-  ./$patrol &>/dev/null
+DIR="$( cd "$( dirname "$0" )" && pwd )"
+for patrol in $DIR/patrol* ; do
+  $patrol &>/dev/null
 done
