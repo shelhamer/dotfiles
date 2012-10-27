@@ -4,19 +4,17 @@
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# editor
-
-export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
-export SVN_EDITOR=$EDITOR
-export GIT_EDITOR=$EDITOR
-
 # homebrew
 PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
 
-# homebrew python 2.7
-PATH="/usr/local/share/python:${PATH}"
+# editor
+export EDITOR='mvim-term' # see bin/mvim-term
+export SVN_EDITOR=$EDITOR
+export GIT_EDITOR=$EDITOR
 
-# python startup
+# python
+PATH="/usr/local/share/python:${PATH}" # homebrew python 2.7
+export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 export PYTHONSTARTUP="${HOME}/.pythonrc.py"
 
 ## extensions
