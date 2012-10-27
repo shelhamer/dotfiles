@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# patrol-torrents
+# upload torrent files to seedbox watch dir, then clean up
+
+WATCH_DIR="${HOME}/torrents"
+SSH_ID="${HOME}/.ssh/id_rsa"
+SEED_HOST='user@hostname.tld'
+SEED_DIR='~/watch/'
+
+scp -i $SSH_ID ${WATCH_DIR}/*.torrent ${SEED_HOST}:${SEED_DIR}
+rm -f ${WATCH_DIR}/*.torrent

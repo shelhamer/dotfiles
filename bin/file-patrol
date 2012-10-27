@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# file-patrol
+# poll directories and take automatic actions
+# delegates actual responsibilities to patrol* scripts
+for patrol in ./patrol* ; do
+  ./$patrol &>/dev/null
+done
