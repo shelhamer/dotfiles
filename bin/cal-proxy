@@ -7,7 +7,13 @@
 # on script exit.
 #
 
-## input
+# elevate privileges for network manipulation
+if [ $EUID != 0 ]; then
+  sudo "$0" "$@"
+  exit $?
+fi
+
+# input
 url="http://proxy.lib.berkeley.edu/proxy.pac"
 iface=${4:-Wi-Fi}
 

@@ -12,7 +12,13 @@
 # - port = 9999
 # - iface = Wi-Fi, the default OS X wireless interface
 
-## input
+# elevate privileges for network manipulation
+if [ $EUID != 0 ]; then
+  sudo "$0" "$@"
+  exit $?
+fi
+
+# input
 remote_host=${1:-$SOCKS_HOST}
 remote_user=${2:-`whoami`}
 port=${3:-9999}
@@ -40,6 +46,6 @@ networksetup -setsocksfirewallproxystate $iface on
 # open SOCKS connection
 ssh -N -D $port "${remote_user}@${remote_host}" -i ~/.ssh/id_rsa
 
-## Note:
-## if we were interested in the current state:
-##networksetup -getsocksfirewallproxy Wi-F
+# Note:
+# if we were interested in the current state:
+#networksetup -getsocksfirewallproxy Wi-Fi
