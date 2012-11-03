@@ -3,4 +3,4 @@
 # git-undo
 #
 # repeal commit, reverting to staged changes
-reset --soft HEAD^
+git reset --soft HEAD^
