@@ -67,6 +67,7 @@ set spellfile=~/.vim/dict.add
 " no backups
 set nobackup
 set noswapfile
+set backupskip=/tmp/*,/private/tmp/*
 
 " no annoying beeps
 set visualbell
@@ -81,10 +82,10 @@ let maplocalleader='\'  " map local by \
 nnoremap ; :
 
 " fast navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nmap <C-H> <C-W>h
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-L> <C-W>l
 
 " fast buffer alternation
 map <leader>a <C-^>
@@ -175,6 +176,10 @@ let g:notes_list_bullets = ['*', '-', '+']
 let g:papers_directory = '~/h/notebook/papers/'
 
 " pandoc
+let g:pandoc_no_spans = 1
 let g:pandoc_use_hard_wraps = 1
 "let g:pandoc_auto_format = 1
 let g:pandoc_bibfiles = [g:papers_directory . 'library.bib']
+
+" tabularize
+nmap <leader>e :Tabularize /

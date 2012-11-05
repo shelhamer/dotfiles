@@ -22,6 +22,15 @@ Enable repeat of plugin maps with "." (for those which support it)
 
 Easy quoting/bracketing/etc.
 
+[tabular](http://vim-latex.sourceforge.net/)
+
+Text filtering and alignment for orderly assignment.
+
+[vim-latex](http://vim-latex.sourceforge.net/)
+
+LaTeX suite for Vim with all kinds of convenience and magic for typesetting
+bliss.
+
 [vim-pandoc](https://github.com/vim-pandoc/vim-pandoc)
 
 Pandoc mode for syntax, snippets, folding, and citation
