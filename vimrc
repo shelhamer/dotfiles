@@ -79,7 +79,7 @@ let mapleader=','       " map by , instead of /
 let maplocalleader='\'  " map local by \
 
 " command by ;
-nnoremap ; :
+map ; :
 
 " fast navigation
 nmap <C-H> <C-W>h
