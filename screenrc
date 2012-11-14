@@ -16,6 +16,9 @@ hardstatus string "%H %t %w"
 bind f eval "hardstatus ignore"
 bind F eval "hardstatus alwayslastline"
 
+# scrollback
+defscrollback 4096
+
 # named screens
 screen -t bash
 screen -t vim
