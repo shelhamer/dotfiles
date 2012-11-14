@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# memlimit <memory amount in GB>
+#
+# limit memory of the shell and child processes
+# in human-friendly units
+
+ulimit -v $(python -c "print '%d' % round(${1}*10**6)")
