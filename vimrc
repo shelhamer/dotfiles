@@ -57,6 +57,9 @@ set viminfo='128,<256,s10,h
 syntax on
 colorscheme slate
 
+" shell (bash, interactive)
+set shell=/bin/bash\ -i
+
 " unicode
 set encoding=utf-8
 setglobal fileencoding=utf-8
