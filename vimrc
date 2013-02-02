@@ -181,7 +181,7 @@ call pathogen#helptags()
 
 " latex
 let g:Tex_ViewRule_pdf = 'Preview'
-autocmd BufWritePost *.tex silent call Tex_RunLaTeX()
+"autocmd BufWritePost *.tex silent call Tex_RunLaTeX()
 
 " lusty juggler: shorter shortcut
 nmap <silent> <leader>j :LustyJuggler<CR>
