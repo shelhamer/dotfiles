@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# ios-sms-export
+# extracts text conversations from ios sms db
+# and exports as csv
+
+# backup dir and sms db file name are not guaranteed,
+# and may need to be tailored
+IOS_BACKUP_DIR="$HOME/Library/Application Support/MobileSync/Backup/"
+SMS_FILE="3d0d7e5fb2ce288813306e4d4636395e047a3d28"
+
+# find most recent backup dir, make full path to sms db
+LATEST_BACKUP=$(ls -1dt "$IOS_BACKUP_DIR"* | head -n 1)
+SMS_DB=${LATEST_BACKUP}/${SMS_FILE}
+
+# extract text conversations from sqlite db, output csv (tab delimited)
+#
+# format: conversation, timestamp, to/from, and message text
+#
+# n.b. you need to complete the conversation CASE to translate handle_ids
+# into contact names
+sqlite3 "$SMS_DB" <<!
+.headers on
+.mode csv
+.separator \t
+.output sms.csv
+SELECT
+CASE
+  WHEN handle_id = 1 THEN 'contact name'
+  ELSE NULL
+END AS 'conversation',
+STRFTIME('%m/%d/%Y %H:%M', DATETIME(date+978264705, 'unixepoch')) AS datetime,
+CASE
+  WHEN is_from_me = 1 THEN 'to'
+  ELSE 'from'
+END AS 'direction',
+text
+FROM message
+WHERE conversation IS NOT NULL
+ORDER BY conversation, date;
+!
