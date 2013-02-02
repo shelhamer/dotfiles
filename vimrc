@@ -93,6 +93,9 @@ nmap <C-L> <C-W>l
 " fast buffer alternation
 map <leader>a <C-^>
 
+" very magic search (sane regex)
+" map / /\v
+
 " clear search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
