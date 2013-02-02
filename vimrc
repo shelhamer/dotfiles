@@ -106,6 +106,9 @@ nmap <leader>z za
 nmap Q gq
 vmap Q gqa
 
+" case cycling
+vmap ~ ygv"=TwiddleCase(@")<CR>Pgv
+
 " spelling
 nnoremap <silent> <leader>s :set spell!<CR>
 
@@ -128,6 +131,18 @@ function! Jump2Search(...)
   endif
   call search(pattern, flags)
   norm zt
+endfunction
+
+" alternate among lower/title/upper case
+function! TwiddleCase(str)
+  if a:str ==# toupper(a:str)
+    let result = tolower(a:str)
+  elseif a:str ==# tolower(a:str)
+    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+  else
+    let result = toupper(a:str)
+  endif
+  return result
 endfunction
 
 " strip trailing whitespace
