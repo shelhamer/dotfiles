@@ -10,6 +10,12 @@ SEED_DIR='~/watch/'
 
 ERR_FILE='error-patrol-torrents.log'
 
+COUNT=$(ls -1 $WATCH_DIR/*.torrent 2>/dev/null | wc -l)
+if [ $COUNT -eq 0 ]
+then
+  exit 0
+fi
+
 if scp -i $SSH_ID ${WATCH_DIR}/*.torrent ${SEED_HOST}:${SEED_DIR}
 then
   # cleanup after transfer
