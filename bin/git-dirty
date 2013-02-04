@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# git-dirty
+#
+# check for uncommitted changes
+if [ $(git status --porcelain | wc -l) != 0 ]
+then
+  echo "dirty"
+fi
