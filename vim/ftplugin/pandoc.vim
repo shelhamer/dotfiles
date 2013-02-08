@@ -30,14 +30,17 @@ endfunction
 
 " open path w/ default handler for OS (works for filepaths and URLs)
 function! OpenPath()
-  let file = expand('<cWORD>')
-  silent exec '!open ' . file
+  let path = expand('<cWORD>')
+  silent exec '!open ' . path
 endfunction
 
-" syntax: file paths & URLs
+" syntax: filepaths, URLs, emails
 
-syntax match noteFilePath /\k\@<![\.\/~]\S\+\(\/\|[^ [:punct:]]\)/
+syntax match noteFilePath /\[[^\]]\+\]/
 hi def link noteFilePath Label
 
 syntax match noteURL @\<\(\w\+://\)\(\S*\w\)\+/\?@
 hi def link noteUrl Label
+
+syntax match noteMail /^\%(\p\|\.\|_\|-\|+\)\+@\%(\p\+\.\)\p\+/
+hi def link noteMail Label
