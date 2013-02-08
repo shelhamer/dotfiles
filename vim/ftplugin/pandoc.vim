@@ -7,7 +7,7 @@ map <silent> <leader>r :call ReadPaper()<CR>
 map <silent> <leader>n :call NotePaper()<CR>
 
 " open file w/ default handler
-map <silent> <leader>g :call OpenPath()<CR>
+map <silent> <leader>g :call OpenResource()<CR>
 
 " get citekey under cursor
 function! CiteKey()
@@ -28,10 +28,38 @@ function! NotePaper()
   exec ':e ' . note_file
 endfunction
 
-" open path w/ default handler for OS (works for filepaths and URLs)
-function! OpenPath()
-  let path = expand('<cWORD>')
-  silent exec '!open ' . path
+" open resource w/ default handler for OS (paths, URLs, and emails)
+function! OpenResource()
+  let resource = expand('<cWORD>')
+  " URL
+  if matchstr(resource, '\<\(\w\+://\)\(\S*\w\)\+/\?') != ''
+    call ShellOpen(resource)
+  " email
+  elseif matchstr(resource, '\%(\p\|\.\|_\|-\|+\)\+@\%(\p\+\.\)\p\+') != ''
+    call ShellOpen('mailto:' . resource)
+  " path (last b.c. of complicated match)
+  elseif matchstr(getline('.'), '\[[^\]]\+]') != ''
+    " capture text in delimiters around cursor
+    let l = line('.')
+    let c = col('.')
+    norm vi[y
+    let path = expand(getreg('0'))
+    " undo side effects
+    call setreg('0','')
+    call cursor(l,c)
+    " check access, open file
+    if !(isdirectory(path) || filereadable(path))
+      echo "shell: " . path . " couldn't be opened."
+    else
+      call ShellOpen(path)
+    endif
+  else
+    echo "shell: couldn't find a known resource to open"
+  endif
+endfunction
+
+function! ShellOpen(resource)
+  silent exec '!open ' . shellescape(a:resource)
 endfunction
 
 " syntax: filepaths, URLs, emails
@@ -42,5 +70,5 @@ hi def link noteFilePath Label
 syntax match noteURL @\<\(\w\+://\)\(\S*\w\)\+/\?@
 hi def link noteUrl Label
 
-syntax match noteMail /^\%(\p\|\.\|_\|-\|+\)\+@\%(\p\+\.\)\p\+/
+syntax match noteMail /\%(\p\|\.\|_\|-\|+\)\+@\%(\p\+\.\)\p\+/
 hi def link noteMail Label
