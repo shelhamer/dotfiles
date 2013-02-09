@@ -1,0 +1,3 @@
+[submodule "vim/bundle/vim-open"]
+	path = vim/bundle/vim-open
+	url = git@github.com:shelhamer/vim-open.git
