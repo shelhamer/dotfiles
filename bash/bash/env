@@ -10,6 +10,9 @@ PATH="${HOME}/bin:${PATH}"
 # homebrew
 PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
 
+# tex
+PATH="/usr/texbin:${PATH}"
+
 # editor
 export EDITOR='mvim-term' # see bin/mvim-term
 export SVN_EDITOR=$EDITOR
