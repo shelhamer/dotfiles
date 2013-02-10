@@ -98,6 +98,7 @@ alias gm="git merge"
 alias gu="git pull"
 alias gp="git push"
 alias gpo="git push origin"
+alias gps="git push shelhamer"
 
 # matlab
 alias matlab="matlab -nosplash -nodesktop"
