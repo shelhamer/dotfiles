@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# patrol-photos
+# move photos into iPhoto import dir, call iPhoto to import
+
+WATCH_DIR="${HOME}/photos"
+IMPORT_DIR="${HOME}/Pictures/iPhoto Library/Auto Import/"
+
+# check for photos, quit if none
+COUNT=$(ls -1 $WATCH_DIR/ 2>/dev/null | wc -l)
+if [ $COUNT -eq 0 ]
+then
+  echo 'blah'
+  exit 0
+fi
+
+mv ${WATCH_DIR}/* "$IMPORT_DIR"
+
+# open iPhoto to trigger auto import
+# -g: background app to not interrupt anything
+# -a: open by app name rather than path
+open -ga iPhoto
