@@ -16,7 +16,11 @@ fi
 
 mv ${WATCH_DIR}/* "$IMPORT_DIR"
 
-# open iPhoto to trigger auto import
+# open iPhoto to trigger auto import (if not already open)
 # -g: background app to not interrupt anything
 # -a: open by app name rather than path
-open -ga iPhoto
+PROCS=$(ps aux)
+if ! echo $PROCS | grep -q 'iPhoto.app/Contents/MacOS/iPhoto'
+then
+  open -ga iPhoto
+fi
