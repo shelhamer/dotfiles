@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# git-rollcall <dir>
+#
+# report status of all git repos under dir / current dir
+DIR=${1:-'.'}
+REPOS=$(find "$DIR" -name .git -type d)
+for REPO in $REPOS; do
+  (cd "$REPO/.."; echo $(basename $(dirname "$REPO")); git status -sb);
+done
