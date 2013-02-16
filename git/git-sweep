@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# git-sweep
+#
+# remove deleted files from index
+git ls-files --deleted -z | xargs -0 git rm
