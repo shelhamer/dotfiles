@@ -1,0 +1,8 @@
+#!/bin/sh
+
+TREEISH=$1
+
+# git-palimpsest
+#
+# shortcut for rewriting a swath of history up to the present
+git rebase -i ${TREEISH}~1
