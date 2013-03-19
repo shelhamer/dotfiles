@@ -1,15 +1,10 @@
-# shelhamer dotfiles
+# dotfiles
 
-## dotfiles
+*We shed as we pick up, like travelers who must carry everything in our arms,
+and what we let fall will be picked up by those behind.*
 
-A day at the command prompt can save you an hour in the editor.
-
-In that spirit, I have a small collection of configs and scripts that I have
-hacked together in the course of work and daily life.
-
-"dotfiles" is a catch-all term for system customizations, whether
-configurations or scripts. (The name is from unix, which marks hidden files
-by prepending a . to the name, such as the config files in a home directory).
+My burgeoning collection of hacks and configs for Better Living (TM). Welcome to
+my own little corner of the let's-all-share-our-dotfiles party.
 
 ## thanks
 
