@@ -8,7 +8,7 @@
 # - files removed from the tree
 # use message, if given
 
-git add -A
+git add -A :/
 if [ -n "$1" ];
 then
   git commit -m "$1"
