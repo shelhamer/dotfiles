@@ -29,7 +29,7 @@ export PYTHONSTARTUP="${HOME}/.pythonrc.py"
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 
 # autojump
-export AUTOJUMP_AUTOCOMPLETE_CMDS='mv cp'
+export AUTOJUMP_AUTOCOMPLETE_CMDS='mv cp v'
 if [ -f `brew --prefix`/etc/autojump.bash ]; then
   . `brew --prefix`/etc/autojump.bash
 fi
