@@ -103,9 +103,11 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 " fold/unfold
 nmap <leader>z za
 
-" reflow on Q
+" wrap on Q, unwrap on C-Q
 nmap Q gq
 vmap Q gqa
+nmap <C-Q> vipJ
+vmap <C-Q> J
 
 " case cycling
 vmap ~ ygv"=TwiddleCase(@")<CR>Pgv
