@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# git-ci <msg>
+#
+# shorthand for git commit
+# use message, if given
+
+if [ -n "$1" ];
+then
+  git commit -m "$1" "${@:2}"
+else
+  git commit "$@"
+fi

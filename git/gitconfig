@@ -9,7 +9,6 @@
 [alias]
   cl = clone
   co = checkout
-  ci = commit
   st = status -sb
   df = diff
   stage = diff --cached
