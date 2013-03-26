@@ -64,8 +64,9 @@ set shell=/bin/bash\ -i
 set encoding=utf-8
 setglobal fileencoding=utf-8
 
-" spelling
+" spelling (w.o. capitalization check)
 set spellfile=~/.vim/dict.add
+set spellcapcheck=''
 
 " no backups
 set nobackup
