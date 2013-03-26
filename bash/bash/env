@@ -4,14 +4,14 @@ export LC_ALL=en_US.UTF-8
 
 ## path
 
-# home collection
-PATH="${HOME}/bin:${PATH}"
+# tex
+PATH="/usr/texbin:${PATH}"
 
 # homebrew
 PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
 
-# tex
-PATH="/usr/texbin:${PATH}"
+# home collection
+PATH="${HOME}/bin:${PATH}"
 
 # editor
 export EDITOR='mvim-term' # see bin/mvim-term
