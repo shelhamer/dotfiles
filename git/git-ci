@@ -5,7 +5,7 @@
 # shorthand for git commit
 # use message, if given
 
-if [ -n "$1" ];
+if [ "$1" =~ "[[:space:]]" ];
 then
   git commit -m "$1" "${@:2}"
 else
