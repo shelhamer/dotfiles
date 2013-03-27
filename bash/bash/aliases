@@ -9,6 +9,7 @@ alias mv="mv -i"
 alias rm="rm -i"
 alias md="mkdir -p"
 alias scp="scp -r"
+alias sed="sed -i ''" # skip in-place backups, I never make mistakes
 
 alias screen="screen -D -R" # I never fail to have a screen open
 
