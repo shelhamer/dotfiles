@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# git-id <treeish>
+#
+# shorthand for git describe
+# to generate a unique id (that's friendlier than the hash)
+git describe --tags $1
