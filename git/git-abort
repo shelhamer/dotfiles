@@ -1,7 +1,9 @@
 #!/bin/sh
 
+TREEISH=${1:-'HEAD'}
+
 # git-abort
 #
 # throw out working changes,
 # resetting to latest versioned state
-git reset --hard HEAD
+git reset --hard $TREEISH
