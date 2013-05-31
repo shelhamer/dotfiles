@@ -1,0 +1,4 @@
+#!/bin/sh
+# stall until a key is pressed
+echo "... ?"
+read -n 1 -s
