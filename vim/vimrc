@@ -189,7 +189,6 @@ autocmd BufWritePre *.* call StripTrailing(no_strip_types)
 
 " pathogen
 call pathogen#infect()
-call pathogen#helptags()
 
 " status (airline)
 set laststatus=2
