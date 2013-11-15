@@ -208,7 +208,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:ctrlp_map = '<leader>t'
 
 " latex
-let g:Tex_ViewRule_pdf = 'Preview'
+let g:Tex_ViewRule_pdf = 'Skim'
 "autocmd BufWritePost *.tex silent call Tex_RunLaTeX()
 
 " lusty juggler: shorter shortcut
