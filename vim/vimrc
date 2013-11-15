@@ -77,6 +77,9 @@ set backupskip=/tmp/*,/private/tmp/*
 set visualbell
 set noerrorbells
 
+" no mode (see airline)
+set noshowmode
+
 "" custom bindings
 
 let mapleader=','       " map by , instead of /
@@ -181,6 +184,20 @@ autocmd BufWritePre *.* call StripTrailing(no_strip_types)
 " pathogen
 call pathogen#infect()
 call pathogen#helptags()
+
+" status (airline)
+set laststatus=2
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
 
 " latex
 let g:Tex_ViewRule_pdf = 'Preview'
