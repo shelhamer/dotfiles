@@ -232,3 +232,13 @@ let g:pandoc_bibfiles = [g:papers_directory . 'library.bib']
 
 " tabularize
 nmap <leader>e :Tabularize /
+
+" youcompleteme
+" let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+" let g:ycm_filetype_blacklist = {
+"       \ 'notes':1,
+"       \ 'markdown':1,
+"       \ 'pandoc':1,
+"       \ 'text':1,
+"       \ 'journal':1
+"       \}
