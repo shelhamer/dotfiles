@@ -94,8 +94,11 @@ nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 
-" fast buffer alternation
-map <leader>a <C-^>
+" fast buffer alternation, next/prev, close
+map ga <C-^>
+nmap gn :bn<CR>
+nmap gp :bp<CR>
+nmap gk :bp<bar>bd #<CR>
 
 " very magic search (sane regex)
 " map / /\v
