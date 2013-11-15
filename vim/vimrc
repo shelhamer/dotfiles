@@ -204,6 +204,9 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 
+" file finding (ctrlp)
+let g:ctrlp_map = '<leader>t'
+
 " latex
 let g:Tex_ViewRule_pdf = 'Preview'
 "autocmd BufWritePost *.tex silent call Tex_RunLaTeX()
