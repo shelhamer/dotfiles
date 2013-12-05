@@ -127,6 +127,7 @@ alias histf="history | cut -c8- | count"
 
 # osx specific: file opening + clipboard
 alias o="open"
+alias or="open -R"
 alias pb="pbcopy"
 alias pv="pbpaste"
 
