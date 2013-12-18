@@ -109,15 +109,6 @@ alias ipbn='ipython notebook --ip=0.0.0.0 --pylab=inline'
 alias mkve='mkvirtualenv --no-site-packages --python=/usr/local/Cellar/python/2.7.2/bin/python'
 alias mkve3='mkvirtualenv --no-site-packages --python=/usr/local/Cellar/python3/3.2/bin/python3'
 
-# rails
-alias rc='rails console'
-alias rs='rails server'
-alias rg='rails generate'
-alias autot='autotest -rails'
-alias tlog='tail -f log/development.log'
-alias scaffold='rails generate nifty_scaffold'
-alias migrate='rake db:migrate db:test:clone'
-alias rst='touch tmp/restart.txt'
 
 ## misc.
 
