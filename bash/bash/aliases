@@ -109,7 +109,7 @@ alias ipbn='ipython notebook --ip=0.0.0.0 --pylab=inline'
 alias mkve='mkvirtualenv --no-site-packages --python=/usr/local/Cellar/python/2.7.2/bin/python'
 alias mkve3='mkvirtualenv --no-site-packages --python=/usr/local/Cellar/python3/3.2/bin/python3'
 
-alias make='make -j8' # parellelize
+alias make='make -j8' # parallelize
 
 ## misc.
 
