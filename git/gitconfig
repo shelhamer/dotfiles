@@ -1,11 +1,6 @@
 [user]
   name = <name>
   email = <email>
-[color]
-  diff = auto
-  status = auto
-  branch = auto
-  interactive = auto
 [alias]
   cl = clone
   co = checkout
@@ -21,12 +16,30 @@
   lm = log --merge --left-right -p
   sh = show
   rm = rm -r
-[merge]
-  tool = opendiff
-  summary = true
 [core]
   autocrlf = input
-  excludesfile = <home_path>/.gitignore
+  excludesfile = /Users/shelhamer/.gitignore
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+[log]
+  date = local
+[diff]
+  tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+  prompt = false
+[merge]
+  tool = Kaleidoscope
+  summary = true
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+[mergetool]
+  prompt = false
 [push]
   default = upstream
 [github]
