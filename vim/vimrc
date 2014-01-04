@@ -207,6 +207,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 " file finding (ctrlp)
 let g:ctrlp_map = '<leader>t'
 map <c-p>  :CtrlP getcwd()<CR>
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' " silver searcher
 
 " latex
 let g:Tex_ViewRule_pdf = 'Skim'
