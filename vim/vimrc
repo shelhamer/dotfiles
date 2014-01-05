@@ -31,6 +31,7 @@ set listchars=extends:#,nbsp:.
 " navigation
 set number        " number lines
 set ruler         " show row, col of cursor
+set scrolloff=2   " scroll 2 lines away from border
 
 " search
 set hlsearch      " highlight search
