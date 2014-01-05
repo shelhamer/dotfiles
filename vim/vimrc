@@ -187,6 +187,9 @@ filetype plugin on
 let no_strip_types = ['diff', 'markdown', 'pandoc']
 autocmd BufWritePre *.* call StripTrailing(no_strip_types)
 
+" python indent
+autocmd Filetype python setlocal expandtab tabstop=2 shiftwidth=2
+
 "" plugins
 
 " pathogen
