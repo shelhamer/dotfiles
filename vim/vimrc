@@ -6,6 +6,7 @@ set nocompatible
 " files
 set title     " show filename in terminal title
 set hidden    " hide buffers instead of closing, preserving the buffer
+set autoread  " auto re-read files on change
 
 " text width, wrap
 set textwidth=80
