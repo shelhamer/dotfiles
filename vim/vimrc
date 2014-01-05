@@ -59,7 +59,7 @@ set directory=~/.vim/tmp//,/var/tmp//,/tmp//,.
 
 " syntax highlighting
 syntax on
-colorscheme slate
+colorscheme egs-slate
 
 " shell (bash, interactive)
 set shell=/bin/bash\ -i
