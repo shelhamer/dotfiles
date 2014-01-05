@@ -43,15 +43,19 @@ set pastetoggle=<F2>            " for pasting verbatim
 " folding
 set foldlevelstart=2  " unfold top level at start
 
-" memory
+" history
 set history=1024    " number of commands, searches
-set undolevels=1024 " number of mistakes
+set undofile
+set undodir=~/.vim/tmp//
+set undolevels=1024  " number of mistakes
+set undoreload=16384 " number of lines to hold in undo buffer
 
 " persistence:
 " marks for 128 recent files
 " registers < 256 lines and < 10k in size
 " ignore hlsearch state on start
 set viminfo='128,<256,s10,h
+set directory=~/.vim/tmp//,/var/tmp//,/tmp//,.
 
 " syntax highlighting
 syntax on
@@ -70,8 +74,6 @@ set spellcapcheck=''
 
 " no backups
 set nobackup
-set noswapfile
-set backupskip=/tmp/*,/private/tmp/*
 
 " no annoying beeps
 set visualbell
