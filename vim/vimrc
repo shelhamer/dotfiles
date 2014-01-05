@@ -59,6 +59,10 @@ set undoreload=16384 " number of lines to hold in undo buffer
 set viminfo='128,<256,s10,h
 set directory=~/.vim/tmp//,/var/tmp//,/tmp//,.
 
+" ignore types
+set wildignore+=.svn,CVS,.git,*.pyc,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam,*/tmp/*,*.zip,log/**,node_modules/**,target/**,tmp/**,*.rbc
+set wildmode=longest,list,full
+
 " syntax highlighting
 syntax on
 colorscheme egs-slate
