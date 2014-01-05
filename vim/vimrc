@@ -103,7 +103,8 @@ nmap gp :bp<CR>
 nmap gk :bp<bar>bd #<CR>
 
 " very magic search (sane regex)
-" map / /\v
+"nnoremap / /\v
+"vnoremap / /\v
 
 " clear search
 nmap <silent> <leader>/ :nohlsearch<CR>
