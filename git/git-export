@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# git-export
+#
+# export checked-out revision as bare files
+# (for build and what-not)
+
+if [ -z "$1" ]
+then
+  echo "No export path given; nothing to do."
+  exit 1
+fi
+
+EXPORT_DIR=$1
+
+if [ ! $(echo $EXPORT_DIR | grep "/$") ]
+then
+  EXPORT_DIR="$EXPORT_DIR/"
+fi
+
+git checkout-index -f -a --prefix="$EXPORT_DIR"
