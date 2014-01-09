@@ -130,8 +130,6 @@ vmap ~ ygv"=TwiddleCase(@")<CR>Pgv
 " spelling
 nnoremap <silent> <leader>s :set spell!<CR>
 
-" file explorer: tree view
-let g:netrw_liststyle=3
 
 " vim session save/load
 nmap ss :wa<CR>:mksession! ~/.vim/sessions/
@@ -246,6 +244,9 @@ let g:pandoc_bibfiles = [g:papers_directory . 'library.bib']
 
 " tabularize
 nmap <leader>e :Tabularize /
+
+" file explorer: tree view
+let g:netrw_liststyle=3
 
 " youcompleteme
 " let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
