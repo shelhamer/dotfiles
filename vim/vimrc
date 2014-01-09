@@ -130,6 +130,8 @@ vmap ~ ygv"=TwiddleCase(@")<CR>Pgv
 " spelling
 nnoremap <silent> <leader>s :set spell!<CR>
 
+" marked markdown view
+nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
 
 " vim session save/load
 nmap ss :wa<CR>:mksession! ~/.vim/sessions/
