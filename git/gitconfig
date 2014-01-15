@@ -18,7 +18,7 @@
   rm = rm -r
 [core]
   autocrlf = input
-  excludesfile = /Users/shelhamer/.gitignore
+  excludesfile = <homedir>/.gitignore
 [color]
   diff = auto
   status = auto
