@@ -77,7 +77,7 @@ alias vv="mvim -v"
 
 # git
 alias git="hub" # see http://defunkt.io/hub
-alias g="git"
+alias g="hub"
 alias gcl="git clone"
 alias gco="git checkout"
 alias gci="git ci"
