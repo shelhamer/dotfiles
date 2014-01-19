@@ -49,3 +49,5 @@
   token = <github_token>
 [credential]
   helper = osxkeychain
+[init]
+  templatedir = ~/.git-templates
