@@ -16,6 +16,7 @@
   lm = log --merge --left-right -p
   sh = show
   rm = rm -r
+  crucible = gc --aggressive --prune=now
 [core]
   autocrlf = input
   excludesfile = <homedir>/.gitignore
