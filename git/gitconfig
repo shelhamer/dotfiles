@@ -42,7 +42,7 @@
 [mergetool]
   prompt = false
 [push]
-  default = upstream
+  default = matching
 [pull]
   rebase = true
 [github]
