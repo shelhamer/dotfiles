@@ -42,7 +42,7 @@
 [mergetool]
   prompt = false
 [push]
-  default = matching
+  default = tracking
 [pull]
   rebase = true
 [github]
