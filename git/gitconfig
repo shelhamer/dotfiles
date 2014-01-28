@@ -6,7 +6,8 @@
   co = checkout
   st = status -sb
   df = diff
-  stage = diff --cached
+  ds = diff --stat
+  di = diff --cached
   br = branch
   rb = rebase
   lg = log --oneline --decorate
