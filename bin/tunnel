@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# tunnel
+# configure ssh port forwards
+# 
+# tunnel <host> <port> (<another_port> ...)
+
+HOST=$1
+PORTS=${@:2}
+
+# config
+GATEWAY=<DEFAULT_GATEWAY>
+TUNNEL_DIR=~
+
+# expand ports into ssh forwards
+FORWARDS=""
+for PORT in $PORTS
+  do FORWARDS="$FORWARDS -L$PORT:$HOST:$PORT "
+done
+
+# open tunnel
+TUNNEL_CMD="ssh -f -N $GATEWAY $FORWARDS"
+$TUNNEL_CMD
+
+# save record (for tracking, killing with pkill)
+TUNNEL_NAME="${HOST}_$(echo $PORTS | tr ' ' _)"
+echo $TUNNEL_CMD > $TUNNEL_DIR/$TUNNEL_NAME
