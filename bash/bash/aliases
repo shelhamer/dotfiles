@@ -75,6 +75,8 @@ function w { cd ~/h/work/"$*"; }
 alias v="mvim"
 alias vv="mvim -v"
 
+alias marked="open -a Marked.app"
+
 # git
 alias git="hub" # see http://defunkt.io/hub
 alias g="hub"
