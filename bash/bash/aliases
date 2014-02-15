@@ -65,7 +65,7 @@ function cd() {
 # see completions, completion_scripts/dir_completion
 function h { cd ~/h/"$*"; }
 function c { cd ~/h/context/"$*"; }
-function d { cd ~/h/dev/"$*"; }
+function d { cd ~/h/desk/"$*"; }
 function n { cd ~/h/notebook/$*; }
 function p { cd ~/h/projects/"$*"; }
 function w { cd ~/h/work/"$*"; }

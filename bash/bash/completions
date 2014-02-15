@@ -4,7 +4,7 @@ complete -F _todo to
 complete -C "~/.bash/completion_scripts/dir_completion ''" -o default h
 complete -C "~/.bash/completion_scripts/dir_completion context" -o default c
 complete -C "~/.bash/completion_scripts/dir_completion focus" -o default f
-complete -C "~/.bash/completion_scripts/dir_completion dev" -o default d
+complete -C "~/.bash/completion_scripts/dir_completion desk" -o default d
 complete -C "~/.bash/completion_scripts/dir_completion notebook" -o default n
 complete -C "~/.bash/completion_scripts/dir_completion projects" -o default p
 complete -C "~/.bash/completion_scripts/dir_completion work" -o default w
