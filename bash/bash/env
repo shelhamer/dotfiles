@@ -5,13 +5,19 @@ export LC_ALL=en_US.UTF-8
 ## path
 
 # tex
-PATH="/usr/texbin:${PATH}"
+export PATH="/usr/texbin:${PATH}"
 
 # homebrew
-PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
+export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
+export DYLD_FALLBACK_LIBRARY_PATH="/usr/local/lib:${DYLD_FALLBACK_LIBRARY_PATH}"
+export HOMEBREW_GITHUB_API_TOKEN="c4b72392187b1a42197bd07b805dc6334f15852a"
+
+# cuda
+export PATH="/Developer/NVIDIA/CUDA-5.5/bin:${PATH}"
+export DYLD_FALLBACK_LIBRARY_PATH="/Developer/NVIDIA/CUDA-5.5/lib:${DYLD_FALLBACK_LIBRARY_PATH}"
 
 # home collection
-PATH="${HOME}/bin:${PATH}"
+export PATH="${HOME}/bin:${PATH}"
 
 # editor
 export EDITOR='mvim-term' # see bin/mvim-term
@@ -19,8 +25,10 @@ export SVN_EDITOR=$EDITOR
 export GIT_EDITOR=$EDITOR
 
 # python
-PATH="/usr/local/share/python:${PATH}" # homebrew python 2.7
+export PATH="${HOME}/anaconda/bin:${PATH}"
+export DYLD_FALLBACK_LIBRARY_PATH="${DYLD_FALLBACK_LIBRARY_PATH}:${HOME}/anaconda/lib"
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+export PYTHONPATH="${HOME}/lib/python:$PYTHONPATH"
 export PYTHONSTARTUP="${HOME}/.pythonrc.py"
 
 ## extensions
