@@ -25,5 +25,5 @@ then
   }
 
   # prompt definition
-  PS1='\[\e[37;40m\]\h \[\e[34;40m\]\W \[\e[31;40m\]$(parse_git_branch)\[\e[0m\]\n> '
+  PS1='\[\e[37;40m\]\h \[\e[34;40m\]\W \[\e[91;40m\]$(parse_git_branch)\[\e[0m\]\n> '
 fi
