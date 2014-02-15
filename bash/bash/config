@@ -1,3 +1,6 @@
+# editing mode
+set -o vi
+
 # history
 HISTSIZE=10000
 HISTFILESIZE=10000
