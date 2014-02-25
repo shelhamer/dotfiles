@@ -5,15 +5,25 @@
   cl = clone
   co = checkout
   st = status -sb
-  df = diff
+  d = diff
   ds = diff --stat
   di = diff --cached
-  br = branch
-  rb = rebase
-  lg = log --oneline --decorate
+  b = branch
+  t = tag
+  r = rebase --preserve-merges
+  ri = rebase --interactive
+  rc = rebase --continue
+  ra = rebase --abort
+  re = remote
+  m = merge --ff
+  mn = merge --no-ff
+  f = fetch
+  u = pull
+  p = push
+  l = log --oneline --decorate
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   ls = log --stat
   lp = log -p
-  lr = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lm = log --merge --left-right -p
   sh = show
   rm = rm -r
@@ -43,13 +53,16 @@
 [mergetool]
   prompt = false
 [push]
-  default = tracking
+  default = current
 [pull]
   rebase = true
 [github]
   user = <github_user>
   token = <github_token>
 [credential]
-  helper = osxkeychain
+  helper = cache --timeout=3600
 [init]
   templatedir = ~/.git-templates
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
