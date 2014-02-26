@@ -5,6 +5,7 @@
   cl = clone
   co = checkout
   st = status -sb
+  a = add -A
   d = diff
   ds = diff --stat
   di = diff --cached
