@@ -9,6 +9,8 @@
   d = diff
   ds = diff --stat
   di = diff --cached
+  dt = difftool
+  dti = difftool --cached
   b = branch
   t = tag
   r = rebase --preserve-merges
@@ -65,5 +67,5 @@
 [init]
   templatedir = ~/.git-templates
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
