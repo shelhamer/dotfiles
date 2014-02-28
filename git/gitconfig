@@ -5,14 +5,18 @@
   cl = clone
   co = checkout
   st = status -sb
+  f = fetch
+  u = pull
+  p = push
+  b = branch
+  t = tag
   a = add -A
+  rm = rm -r
   d = diff
   ds = diff --stat
   di = diff --cached
   dt = difftool
   dti = difftool --cached
-  b = branch
-  t = tag
   r = rebase --preserve-merges
   ri = rebase --interactive
   rc = rebase --continue
@@ -20,16 +24,12 @@
   re = remote
   m = merge --ff
   mn = merge --no-ff
-  f = fetch
-  u = pull
-  p = push
   l = log --oneline --decorate
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   ls = log --stat
   lp = log -p
   lm = log --merge --left-right -p
   sh = show
-  rm = rm -r
   crucible = gc --aggressive --prune=now
 [core]
   autocrlf = input
