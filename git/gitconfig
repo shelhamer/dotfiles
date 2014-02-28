@@ -30,6 +30,10 @@
   lp = log -p
   lm = log --merge --left-right -p
   sh = show
+  id = describe --tags
+  soft = reset --soft
+  hard = reset --hard
+  undo = reset --soft HEAD^
   crucible = gc --aggressive --prune=now
 [core]
   autocrlf = input
