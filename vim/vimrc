@@ -224,6 +224,26 @@ let g:ctrlp_map = '<leader>t'
 map <c-p>  :CtrlP getcwd()<CR>
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' " silver searcher
 
+" syntastic
+let g:syntastic_mode_map = {'mode': 'passive',
+                          \ 'active_filetypes': [],
+                          \ 'passive_filetypes': []}
+map <silent> <C-s> :SyntasticCheck<CR>
+
+" python-mode
+let g:pymode = 1
+let g:pymode_folding = 1
+let g:pymode_motion = 1
+nmap <silent> <localleader>c :PymodeLint<CR>
+" let g:pymode_breakpoint = 1
+" let g:pymode_breakpoint_bind = '<localleader>b'
+let g:pymode_lint = 0
+let g:pymode_lint_on_write = 0
+let g:pymode_lint_message = 1
+let g:pymode_lint_cwindow = 1
+let g:pymode_lint_ignore = 'E111,E121,W0311'
+let g:pymode_rope_completion = 0
+
 " latex
 let g:Tex_ViewRule_pdf = 'Skim'
 "autocmd BufWritePost *.tex silent call Tex_RunLaTeX()
