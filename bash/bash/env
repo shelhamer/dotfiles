@@ -10,7 +10,7 @@ export PATH="/usr/texbin:${PATH}"
 # homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
 export DYLD_FALLBACK_LIBRARY_PATH="/usr/local/lib:${DYLD_FALLBACK_LIBRARY_PATH}"
-export HOMEBREW_GITHUB_API_TOKEN="c4b72392187b1a42197bd07b805dc6334f15852a"
+export HOMEBREW_GITHUB_API_TOKEN="HOMEBREW_TOKEN"
 
 # cuda
 export PATH="/Developer/NVIDIA/CUDA-5.5/bin:${PATH}"
