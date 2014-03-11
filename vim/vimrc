@@ -88,7 +88,10 @@ set noerrorbells
 " no mode (see airline)
 set noshowmode
 
-"" custom bindings
+" completion
+set completeopt=longest,menuone
+
+"" maps
 
 let mapleader=','       " map by , instead of /
 let maplocalleader='\'  " map local by \
