@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# tar-send
+# copies a directory to a remote machine over ssh by tar for blockwise transfer.
+
+LOCAL_DIR=$1
+HOST=$2
+THERE_DIR=$3
+
+tar cpf - $LOCAL_DIR | ssh $HOST "tar xpf - -C $THERE_DIR"
