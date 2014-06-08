@@ -1,4 +1,0 @@
-# surrogate home dir
-if [ "$(pwd)" = "$HOME" ] ; then
-  cd ~/h
-fi
