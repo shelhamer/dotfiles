@@ -1,6 +1,9 @@
 *~
 ._*
+*.pyc
+*.mex
 doc/tags
 .DS_Store
 .AppleDouble*
-*.tmproj
+.ipynb*
+.ropeproject
