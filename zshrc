@@ -76,6 +76,9 @@ ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[yellow]%}✗%{$reset_color%}"
 # set language
 export LANG=en_US.UTF-8
 
+# path
+export PATH="/usr/sbin:/sbin:${PATH}"
+
 # homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
 export DYLD_FALLBACK_LIBRARY_PATH="/usr/local/lib:${DYLD_FALLBACK_LIBRARY_PATH}"
