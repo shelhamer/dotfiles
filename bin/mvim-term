@@ -1,2 +1,0 @@
-#!/bin/sh
-mvim -f --nomru -c "au VimLeave * !open -a Terminal" $1
