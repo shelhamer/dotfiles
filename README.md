@@ -11,8 +11,3 @@ my own little corner of the let's-all-share-our-dotfiles party.
 I decided to collect my dotfiles and publish them after reading Zach Holman's
 [dotfiles are meant to be
 forked](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
-
-I have adapted my bash customizations to the structure given in
-[Ryan Bates](http://github.com/ryanb)'
-[dotfiles](http://github.com/ryanb/dotfiles) and extended his project
-directory bash completion.
