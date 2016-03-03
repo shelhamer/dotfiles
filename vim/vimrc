@@ -1,4 +1,4 @@
-"" general configuation
+"" general configuration
 
 " vim, not vi
 set nocompatible
@@ -51,6 +51,7 @@ set undofile
 set undodir=~/.vim/tmp//
 set undolevels=1024  " number of mistakes
 set undoreload=16384 " number of lines to hold in undo buffer
+set shortmess+=A " don't worry about existing swap files
 
 " persistence:
 " marks for 128 recent files
@@ -65,6 +66,8 @@ set wildmode=longest,list,full
 
 " syntax highlighting
 syntax on
+
+set background=dark
 colorscheme egs-slate
 
 " shell (bash, interactive)
@@ -91,6 +94,9 @@ set noshowmode
 " completion
 set completeopt=longest,menuone
 
+" sessions
+set sessionoptions-=options
+
 "" maps
 
 let mapleader=','       " map by , instead of /
@@ -115,6 +121,9 @@ nmap gk :bp<bar>bd #<CR>
 nnoremap / /\v
 vnoremap / /\v
 
+" complete by tab
+inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+
 " clear search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
@@ -134,7 +143,7 @@ vmap ~ ygv"=TwiddleCase(@")<CR>Pgv
 nnoremap <silent> <leader>s :set spell!<CR>
 
 " marked markdown view
-nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+nnoremap <leader>m :silent !open -a Marked\ 2 '%:p'<cr>
 
 " vim session save/load
 nmap ss :wa<CR>:mksession! ~/.vim/sessions/
@@ -186,6 +195,28 @@ function! StripTrailing(...)
   call cursor(l, c)
 endfunction
 
+" smart tab complete from http://vim.wikia.com/wiki/Smart_mapping_for_tab_completion
+function! Smart_TabComplete()
+  let line = getline('.')                         " current line
+
+  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
+                                                  " line to one character right
+                                                  " of the cursor
+  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
+  if (strlen(substr)==0)                          " nothing to match on empty string
+    return "\<tab>"
+  endif
+  let has_period = match(substr, '\.') != -1      " position of period, if any
+  let has_slash = match(substr, '\/') != -1       " position of slash, if any
+  if (!has_period && !has_slash)
+    return "\<C-X>\<C-P>"                         " existing text matching
+  elseif ( has_slash )
+    return "\<C-X>\<C-F>"                         " file matching
+  else
+    return "\<C-X>\<C-O>"                         " plugin matching
+  endif
+endfunction
+
 "" automation
 
 " file types
@@ -197,8 +228,8 @@ filetype plugin on
 let no_strip_types = ['diff', 'markdown', 'pandoc']
 autocmd BufWritePre *.* call StripTrailing(no_strip_types)
 
-" python indent
-autocmd Filetype python setlocal expandtab tabstop=2 shiftwidth=2
+" python indent (disabled to give in to pep8)
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
 "" plugins
 
@@ -210,10 +241,10 @@ set laststatus=2
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+let g:airline_theme = 'wombat'
 
-" unicode symbols
 let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
+let g:airline_right_sep = '◄'
 let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
@@ -222,7 +253,8 @@ let g:airline_symbols.whitespace = 'Ξ'
 " file finding (ctrlp)
 let g:ctrlp_map = '<leader>t'
 map <c-p>  :CtrlP getcwd()<CR>
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' " silver searcher
+let g:ctrlp_user_command = 'ag %s -l -f --nocolor -g ""' " silver searcher
+let g:ctrlp_switch_buffer = '' " always open a new instance for side-by-side
 
 " syntastic
 let g:syntastic_mode_map = {'mode': 'passive',
@@ -248,9 +280,6 @@ let g:pymode_rope_completion = 0
 let g:Tex_ViewRule_pdf = 'Skim'
 "autocmd BufWritePost *.tex silent call Tex_RunLaTeX()
 
-" lusty juggler: shorter shortcut
-nmap <silent> <leader>j :LustyJuggler<CR>
-
 " notes
 let g:notes_directory = '~/h/notebook/jot'
 let g:notes_suffix = '.md'
@@ -262,23 +291,18 @@ let g:notes_list_bullets = ['*', '-', '+']
 let g:papers_directory = '~/h/notebook/papers/'
 
 " pandoc
-let g:pandoc_no_spans = 1
-let g:pandoc_use_hard_wraps = 1
-"let g:pandoc_auto_format = 1
-let g:pandoc_bibfiles = [g:papers_directory . 'library.bib']
+"let g:pandoc#modules#enabled = []
+let g:pandoc#modules#disabled = ['folding']
+let g:pandoc#formatting#mode = 'h'
+let g:pandoc#biblio#sources = 'bcg'
+let g:pandoc#biblio#bibs = [g:papers_directory . 'library.bib']
+let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#syntax#style#emphases = 0
+let g:pandoc#syntax#style#underline_special = 0
+autocmd Filetype pandoc set tw=0
 
 " tabularize
 nmap <leader>e :Tabularize /
 
 " file explorer: tree view
 let g:netrw_liststyle=3
-
-" youcompleteme
-" let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
-" let g:ycm_filetype_blacklist = {
-"       \ 'notes':1,
-"       \ 'markdown':1,
-"       \ 'pandoc':1,
-"       \ 'text':1,
-"       \ 'journal':1
-"       \}
