@@ -6,3 +6,7 @@
   path = vim/bundle/vim-help-stash
   url = git@github.com:shelhamer/vim-help-stash.git
   branch = master
+[submodule "prezto"]
+	path = prezto
+	url = git@github.com:shelhamer/prezto.git
+	branch = shelhamer
