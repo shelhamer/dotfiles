@@ -32,7 +32,7 @@
   soft = reset --soft
   hard = reset --hard
   undo = reset --soft HEAD^
-  conflicted = git diff --name-only --diff-filter=U
+  conflicted = diff --name-only --diff-filter=U
   crucible = gc --aggressive --prune=now
 [core]
   autocrlf = input
