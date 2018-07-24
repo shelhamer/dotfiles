@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# file-patrol
-# poll directories and take automatic actions
-# delegates actual responsibilities to patrol* scripts
-DIR="$( cd "$( dirname "$0" )" && pwd )"
-for patrol in $DIR/patrol* ; do
-  $patrol &>/dev/null
-done
