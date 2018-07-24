@@ -1,12 +1,7 @@
-[submodule "vim/bundle/vim-open"]
-  path = vim/bundle/vim-open
-  url = git@github.com:shelhamer/vim-open.git
-  branch = master
-[submodule "vim/bundle/vim-help-stash"]
-  path = vim/bundle/vim-help-stash
-  url = git@github.com:shelhamer/vim-help-stash.git
-  branch = master
 [submodule "prezto"]
 	path = prezto
 	url = git@github.com:shelhamer/prezto.git
 	branch = shelhamer
+[submodule "vim/bundle/vim-pathogen"]
+	path = vim/bundle/vim-pathogen
+	url = git@github.com:tpope/vim-pathogen.git

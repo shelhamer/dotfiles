@@ -121,9 +121,6 @@ nmap gk :bp<bar>bd #<CR>
 nnoremap / /\v
 vnoremap / /\v
 
-" complete by tab
-inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-
 " clear search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
@@ -195,28 +192,6 @@ function! StripTrailing(...)
   call cursor(l, c)
 endfunction
 
-" smart tab complete from http://vim.wikia.com/wiki/Smart_mapping_for_tab_completion
-function! Smart_TabComplete()
-  let line = getline('.')                         " current line
-
-  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
-                                                  " line to one character right
-                                                  " of the cursor
-  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  if (strlen(substr)==0)                          " nothing to match on empty string
-    return "\<tab>"
-  endif
-  let has_period = match(substr, '\.') != -1      " position of period, if any
-  let has_slash = match(substr, '\/') != -1       " position of slash, if any
-  if (!has_period && !has_slash)
-    return "\<C-X>\<C-P>"                         " existing text matching
-  elseif ( has_slash )
-    return "\<C-X>\<C-F>"                         " file matching
-  else
-    return "\<C-X>\<C-O>"                         " plugin matching
-  endif
-endfunction
-
 "" automation
 
 " file types
@@ -234,6 +209,7 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 "" plugins
 
 " pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 " status (airline)
@@ -253,7 +229,6 @@ let g:airline_symbols.whitespace = 'Ξ'
 " file finding (ctrlp)
 let g:ctrlp_map = '<leader>t'
 map <c-p>  :CtrlP getcwd()<CR>
-let g:ctrlp_user_command = 'ag %s -l -f --nocolor -g ""' " silver searcher
 let g:ctrlp_switch_buffer = '' " always open a new instance for side-by-side
 
 " syntastic
@@ -267,8 +242,8 @@ let g:pymode = 1
 let g:pymode_folding = 1
 let g:pymode_motion = 1
 nmap <silent> <localleader>c :PymodeLint<CR>
-" let g:pymode_breakpoint = 1
-" let g:pymode_breakpoint_bind = '<localleader>b'
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<localleader>b'
 let g:pymode_lint = 0
 let g:pymode_lint_on_write = 0
 let g:pymode_lint_message = 1
@@ -276,22 +251,10 @@ let g:pymode_lint_cwindow = 1
 let g:pymode_lint_ignore = 'E111,E121,W0311'
 let g:pymode_rope_completion = 0
 
-" latex
-let g:Tex_ViewRule_pdf = 'Skim'
-"autocmd BufWritePost *.tex silent call Tex_RunLaTeX()
-
-" notes
-let g:notes_directory = '~/h/notebook/jot'
-let g:notes_suffix = '.md'
-let g:notes_title_sync = 'rename_file'
-let g:notes_smart_quotes = 1
-let g:notes_list_bullets = ['*', '-', '+']
-
 " paper reading
 let g:papers_directory = '~/h/notebook/papers/'
 
 " pandoc
-"let g:pandoc#modules#enabled = []
 let g:pandoc#modules#disabled = ['folding']
 let g:pandoc#formatting#mode = 'h'
 let g:pandoc#biblio#sources = 'bcg'
