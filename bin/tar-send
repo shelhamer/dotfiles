@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # tar-send
 # copies a directory to a remote machine over ssh by tar for blockwise transfer.
