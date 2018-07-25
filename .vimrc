@@ -226,10 +226,15 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" file finding (ctrlp)
+" search (ctrlp)
 let g:ctrlp_map = '<leader>t'
 map <c-p>  :CtrlP getcwd()<CR>
 let g:ctrlp_switch_buffer = '' " always open a new instance for side-by-side
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
 
 " syntastic
 let g:syntastic_mode_map = {'mode': 'passive',
