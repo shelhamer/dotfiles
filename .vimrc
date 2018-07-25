@@ -3,6 +3,10 @@
 " vim, not vi
 set nocompatible
 
+" pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+
 " files
 set title     " show filename in terminal title
 set hidden    " hide buffers instead of closing, preserving the buffer
@@ -67,8 +71,12 @@ set wildmode=longest,list,full
 " syntax highlighting
 syntax on
 
+" color (base16)
 set background=dark
-colorscheme egs-slate
+if filereadable(expand('~/.vimrc_background'))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " shell (bash, interactive)
 set shell=/bin/bash\ -i
@@ -207,10 +215,6 @@ autocmd BufWritePre *.* call StripTrailing(no_strip_types)
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
 "" plugins
-
-" pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
 
 " status (airline)
 set laststatus=2
