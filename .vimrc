@@ -251,7 +251,7 @@ let g:pymode = 1
 let g:pymode_folding = 1
 let g:pymode_motion = 1
 nmap <silent> <localleader>c :PymodeLint<CR>
-let g:pymode_breakpoint = 1
+let g:pymode_breakpoint = 0
 let g:pymode_breakpoint_bind = '<localleader>b'
 let g:pymode_lint = 0
 let g:pymode_lint_on_write = 0
