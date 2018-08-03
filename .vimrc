@@ -276,5 +276,6 @@ autocmd Filetype pandoc set tw=0
 " tabularize
 nmap <leader>e :Tabularize /
 
-" file explorer: tree view
-let g:netrw_liststyle=3
+" file explorer
+let g:netrw_liststyle=3  " tree view
+let g:netrw_banner = 0   " bannerless
