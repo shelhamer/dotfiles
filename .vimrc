@@ -105,6 +105,9 @@ set completeopt=longest,menuone
 " sessions
 set sessionoptions-=options
 
+" timing for instance mode switching
+set timeoutlen=1000 ttimeoutlen=0
+
 "" maps
 
 let mapleader=','       " map by , instead of /
