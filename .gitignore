@@ -4,3 +4,5 @@
 
 .vim/dict*
 .vim/.netrwhist
+
+.ropeproject/
