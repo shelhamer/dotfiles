@@ -250,7 +250,7 @@ let g:syntastic_mode_map = {'mode': 'passive',
 map <silent> <C-s> :SyntasticCheck<CR>
 
 " python-mode
-let g:pymode = 1
+let g:pymode = 0
 let g:pymode_folding = 1
 let g:pymode_motion = 1
 nmap <silent> <localleader>c :PymodeLint<CR>
